@@ -1,0 +1,38 @@
+{
+    "noisefm": {
+        "name": "Noise FM",
+        "url": "https://play.sas-media.ru/play"
+    },
+    "freshfm": {
+        "name": "103.1 Fresh FM",
+        "url": "https://live.leanstream.co//CFHKFM?args=web_01%22,%22mp3%22:%22https:\/\/live.leanstream.co\/CFHKFM-MP3?args=web_02"
+    },
+    "classicrock": {
+        "name": "Classic Rock",
+        "url": "http://mp3channels.webradio.rockantenne.de/classic-perlen"
+    },
+    "country": {
+        "name": "Country",
+        "url": "http://live.leanstream.co/CKDKFM"
+    },
+    "hits": {
+        "name": "Todays Hits",
+        "url": "http://19353.live.streamtheworld.com/977_HITS.mp3"
+    },
+    "vegas": {
+        "name": "Vibe of Vegas",
+        "url": "http://icyrelay.181.fm/181-vibe_128k.mp3"
+    },
+    "glee": {
+        "name": "Glee Radio",
+        "url": "http://bigrradio-edge1.cdnstream.com/5112_128"
+    },
+    "hiphop": {
+        "name": "Hip Hop",
+        "url": "http://listen.one.hiphop/live.mp3"
+    },
+    "rap": {
+        "name": "Rap",
+        "url": "http://198.105.216.204:8146/stream/1/"
+    }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "lightbulb",
+  "version": "1.0.0",
+  "description": "discord bot",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bot"
+  ],
+  "author": "Andrew",
+  "license": "ISC",
+  "dependencies": {
+    "canvas": "^2.6.0",
+    "canvas-constructor": "^3.1.0",
+    "cheerio": "^1.0.0-rc.3",
+    "discord.js": "^11.5.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "fs-nextra": "^0.3.8",
+    "got": "^9.6.0",
+    "install": "^0.13.0",
+    "jshint": "^2.10.2",
+    "mathjs": "^6.2.3",
+    "moment": "^2.24.0",
+    "ms": "^2.1.1",
+    "mysql": "^2.17.1",
+    "node-fetch": "^2.6.0",
+    "node-gyp": "^5.0.5",
+    "node-pre-gyp": "^0.13.0",
+    "node-superfetch": "^0.1.9",
+    "opusscript": "0.0.7",
+    "randomcolor": "^0.5.4",
+    "sqlite": "^3.0.3",
+    "ytdl-core": "^0.29.7",
+    "ytdl-core-discord": "^1.0.3"
+  }
+}

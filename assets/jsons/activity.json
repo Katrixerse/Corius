@@ -1,0 +1,33 @@
+[{
+    "text": "Gwen Stefani",
+    "type": "LISTENING"
+  },
+  {
+    "text": "Self Learning",
+    "type": "Playing"
+  },
+  {
+    "text": "The Last Of Us Part II",
+    "type": "Playing"
+  },
+  {
+    "text": "with your heart",
+    "type": "Playing"
+  },
+  {
+		"text": "anime",
+		"type": "WATCHING"
+  },
+  {
+		"text": "with other bots",
+		"type": "PLAYING"
+  },
+  {
+		"text": "Visual Studio Code",
+		"type": "PLAYING"
+  },
+  {
+		"text": "Phillip J. Fry Code",
+		"type": "WATCHING"
+  }
+]
