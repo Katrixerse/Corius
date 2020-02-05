@@ -6,13 +6,12 @@ Written in discord.js of course
 If you find any bugs please make a issue so i can look into it and fix it
 
 Made By:
-- SyntheticGenerations (me)
-
-Co-Owner:
-EthericDestruction#9748
+- Katrixerse (me)
+- Levi Kaichou
 
 Special Thanks too:
 - dragonfire535 - Some api commands & canvas commands
+- reztierk - Help with mysql statements and some coding 
 
  will use mySql instead of sqlite to store data (Better this way for reading/writing data)
 
