@@ -1,6 +1,6 @@
-Attention: I will do my best to help out if your having issues hosting but I will no longer be doing any big updates like adding new features because im working on 2 new bots.
+Attention: I will do my best to help out if your having issues hosting, this is my latest bot thats meant to be better than oricnus and justin i will still do updates to this bot at times but been through alot of testing and should be pretty stable as is.
 
-# Orcinus
+# Corius
 Written in discord.js of course 
 
 If you find any bugs please make a issue so i can look into it and fix it
