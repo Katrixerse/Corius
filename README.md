@@ -35,7 +35,7 @@ Follow this guide to setup mysql: https://www.digitalocean.com/community/tutoria
 
 (make sure to edit DbConnection to your database info)
 
-When done downloading the dependencies and setting up mysql, run node Main.js, to start the bot.
+When done downloading the dependencies and setting up mysql, run node app.js, to start the bot.
 
 If there is a problem or an error please make an issue.
 
