@@ -10,7 +10,7 @@ Made By:
 - Levi Kaichou
 
 Special Thanks too:
-- dragonfire535 - Some api commands & canvas commands
+- dragonfire535 - Some api commands & some canvas commands
 - reztierk - Help with mysql statements and some coding 
 
  will use mySql instead of sqlite to store data (Better this way for reading/writing data)
