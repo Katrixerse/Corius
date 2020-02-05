@@ -29,28 +29,7 @@ Now you have done that you will need NodeJs installed can get it from https://no
 
 Now right click the folder in an empty space where you put the files in then click open command prompt.
 
-Need to install each of these packages with npm install [packagename] without the brackets and replace package name with the ones below.
-
-Packages Needed
-
-- discord.js
-- ms
-- superagent
-- snekfetch
-- request
-- request-promise-native
-- urban
-- chrono-node
-- moment
-- windows-build-tools
-- node-gyp
-- canvas
-- canvas-constructor
-- fs-nextra
-- cheerio
-- got
-- mysql
-- mathjs
+Need to install all the packages it depends on with npm install.
 
 Follow this guide to setup mysql: https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04
 
