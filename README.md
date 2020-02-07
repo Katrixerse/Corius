@@ -37,6 +37,16 @@ Follow this guide to setup mysql: https://www.digitalocean.com/community/tutoria
 
 When done downloading the dependencies and setting up mysql, run node app.js, to start the bot.
 
-If there is a problem or an error please make an issue.
+Now invite the bot to your server using an invite like this https://discordapp.com/oauth2/authorize?client_id={your_bot_id}&permissions=8&scope=bot
 
-If you want to run this bot while not having the console or terminal open, use nodemon or pm2 (ex. pm2 start Main.js)
+Make sure to replace your_bot_id with your bots id
+
+Once invited the default prefix is c! incase you have dms turned off (bot sends a first time message when invited to guilds)
+
+c!help will give you a command list from there enjoy using the bot
+
+If you want to run this bot while not having the console or terminal open, use nodemon or pm2 (ex. pm2 start app.js)
+
+If wanting to host this bot and keeping it on 24/7 i would recommend digitalocean
+
+Here is a guide for that: https://www.digitalocean.com/community/questions/how-do-i-set-up-a-discord-bot
