@@ -7,7 +7,7 @@ con = dbConnect();
 
 module.exports = async (bot, message) => {
   if (message.author.bot || message.channel.type === "dm") return;
-  con.query(`SELECT gp.prefix, gs.modOnly, gs.levelingEnabled, gs.economyEnabled, gds.commands, gds.categories FROM guildPrefix AS gp LEFT JOIN guildSettings as gs ON gp.guildId = gs.guildId LEFT JOIN guildDisabledSettings AS gds ON gp.guildId = gds.guildID WHERE gp.guildId ="${message.guild.id}"`, async (e, row) => {
+  con.query(`SELECT gp.prefix, gs.modOnly, gs.levelingEnabled, gs.economyEnabled, gds.commands, gds.categories FROM guildPrefix AS gp LEFT JOIN guildSettings as gs ON gp.guildId = gs.guildId LEFT JOIN guildDisabledSettings AS gds ON gp.guildId = gds.guildId WHERE gp.guildId ="${message.guild.id}"`, async (e, row) => {
     con.query(`SELECT userId AS afkId, guildId, isAfk, afkReason FROM afk AS a WHERE guildId ='${message.guild.id}'`, async (e, rows) => {
       con.query(`SELECT * FROM guildModerators WHERE guildId = '${message.guild.id}'`, async (e, mods) => {
         con.query(`SELECT * FROM guildBlacklistedUsers WHERE guildId ="${message.guild.id}" AND user ="${message.author.id}"`, async (e, user) => {
