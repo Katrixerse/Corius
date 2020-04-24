@@ -9,7 +9,7 @@
   "keywords": [
     "bot"
   ],
-  "author": "Andrew",
+  "author": "Katrix",
   "license": "ISC",
   "dependencies": {
     "canvas": "^2.6.0",
@@ -33,7 +33,7 @@
     "opusscript": "0.0.7",
     "randomcolor": "^0.5.4",
     "sqlite": "^3.0.3",
-    "ytdl-core": "^2.1.1
-    "ytdl-core-discord": "^1.2.0
+    "ytdl-core": "^2.1.1",
+    "ytdl-core-discord": "^1.2.0"
   }
 }
