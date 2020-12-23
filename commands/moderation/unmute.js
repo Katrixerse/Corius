@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { richEmbed } = require("discord.js");
 module.exports.run = (bot, message, args, funcs, con) => {
     const permissionNeeded = "MANAGE_GUILD";
     con.query(`SELECT guildMods FROM guildModerators WHERE guildId ="${message.guild.id}"`, (e, rows) => {
@@ -18,7 +18,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
             userToUnmute.removeRole(check, `User unmuted!`);
             funcs.send(`User successfully unmuted!`, false);
             con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
-            const LogsEmbed = new MessageEmbed()
+            const LogsEmbed = new richEmbed()
                 .setTitle(`:loud_sound: Member Unmuted :loud_sound:`)
                 .setAuthor(message.author.tag, message.author.avatarURL)
                 .addField(`Member unmuted:`, userToUnmute.user.username)

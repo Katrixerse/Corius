@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 module.exports.run = async (bot, message, args, funcs, con) => {
     try {
         const permissionNeeded = "ADMINISTRATOR";
@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                 }).then(resp => {
                     resp = resp.array()[0].content;
                     if (resp == "1") {
-                        const uembed = new MessageEmbed()
+                        const uembed = new richEmbed()
                             .setAuthor(message.author.tag, message.author.avatarURL)
                             .setColor(funcs.rc())
                             .setFooter(bot.user.username)
@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                             .setThumbnail(message.author.avatarURL);
                         message.channel.send(uembed);
                     } else if (resp == "2") {
-                        const sembed = new MessageEmbed()
+                        const sembed = new richEmbed()
                             .setAuthor(message.author.tag, message.author.avatarURL)
                             .setColor(funcs.rc())
                             .setFooter(bot.user.username)
@@ -43,7 +43,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                             .setThumbnail(message.author.avatarURL);
                         message.channel.send(sembed);
                     } else if (resp == "3") {
-                        const cembed = new MessageEmbed()
+                        const cembed = new richEmbed()
                             .setAuthor(message.author.tag, message.author.avatarURL)
                             .setColor(funcs.rc())
                             .setFooter(bot.user.username)
@@ -53,7 +53,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                             .setThumbnail(message.author.avatarURL);
                         message.channel.send(cembed);
                     } else if (resp == "4") {
-                        const fembed = new MessageEmbed()
+                        const fembed = new richEmbed()
                             .setAuthor(message.author.tag, message.author.avatarURL)
                             .setColor(funcs.rc())
                             .setFooter(bot.user.username)

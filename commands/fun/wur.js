@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 const request = require('node-superfetch');
 module.exports.run = async (bot, message, args, funcs) => {
     try {
@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args, funcs) => {
         } = await request
             .get("https://www.rrrather.com/botapi");
         if (body.nsfw == true) return funcs.send(`Not allowed to send a NSFW WuR question in a SFW channel.`);
-        let embed = new MessageEmbed()
+        let embed = new richEmbed()
             .setAuthor(message.author.username, message.author.avatarURl)
             .setThumbnail(bot.user.avatarURL)
             .setTitle(body.title)

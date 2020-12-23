@@ -3,7 +3,7 @@ const {
   promisify
 } = require('util');
 const readdir = promisify(fs.readdir);
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 
 module.exports.run = async (bot, message, args, funcs, con) => {
   try {
@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
         pages += 1;
       }
       const commandlist = commandList.length > 20 ? undefined : commandList.join("\n\n");
-      const embed = new MessageEmbed()
+      const embed = new richEmbed()
         .setTitle(`Command List`)
         .setAuthor(`${commandList.length} commands.`)
         .setColor(funcs.rc())
@@ -66,7 +66,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                       return commandlist3;
                     }
                   }
-                  const embed = new MessageEmbed()
+                  const embed = new richEmbed()
                     .setTitle(`Command List`)
                     .setAuthor(`${commandList.length} commands.`)
                     .setColor(funcs.rc())
@@ -129,7 +129,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                         return commandlist3;
                       }
                     }
-                    const embed = new MessageEmbed()
+                    const embed = new richEmbed()
                       .setTitle(`Command List`)
                       .setAuthor(`${commandList.length} commands.`)
                       .setColor(funcs.rc())

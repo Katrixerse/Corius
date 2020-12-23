@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { richEmbed } = require("discord.js");
 module.exports.run = (bot, message, args, funcs, con) => {
     const permissionNeeded = `MANAGE_GUILD`;
     con.query(`SELECT guildMods FROM guildModerators WHERE guildId ="${message.guild.id}"`, (e, rows) => {
@@ -21,7 +21,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                         con.query(`SELECT gs.logsEnabled, gs.logsChannel, gc.caseNumber FROM guildSettings AS gs LEFT JOIN guildCasenumber as gc ON gc.guildId = gs.guildId WHERE gs.guildId="${message.guild.id}"`, (e, row) => {
                             row = row[0];
                             con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
-                            const LogsEmbed = new MessageEmbed()
+                            const LogsEmbed = new richEmbed()
                                 .setTitle(`:warning: Member Warnings Cleared :warning:`)
                                 .setAuthor(message.author.tag, message.author.avatarURL)
                                 .addField(`Member moderated:`, user.user.username)
@@ -39,7 +39,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                             message.guild.channels.get(logsChannel.id).send(LogsEmbed);
                         });
                     } else if (response == "2") {
-                        const embed = new MessageEmbed()
+                        const embed = new richEmbed()
                             .setTitle(`${user.user.username}'s warns`)
                             .setColor(funcs.rc())
                             .setThumbnail(user.user.avatarURL);
@@ -68,7 +68,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                                             con.query(`SELECT gs.logsEnabled, gs.logsChannel, gc.caseNumber FROM guildSettings AS gs LEFT JOIN guildCasenumber as gc ON gc.guildId = gs.guildId WHERE gs.guildId="${message.guild.id}"`, (e, row) => {
                                                 row = row[0];
                                                 con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
-                                                const LogsEmbed = new MessageEmbed()
+                                                const LogsEmbed = new richEmbed()
                                                     .setTitle(`:warning: Member Warnings Cleared :warning:`)
                                                     .setAuthor(message.author.tag, message.author.avatarURL)
                                                     .addField(`Member moderated:`, user.user.username)

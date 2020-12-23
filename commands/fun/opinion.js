@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 module.exports.run = async (bot, message, args, funcs) => {
   try {
       message.channel.send(`***Enter the object to get my opinion about or type exit to cancel***`)
@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args, funcs) => {
               obj1 = obj1.array()[0];
               let opinions = [`I have a good opinion about ${obj1.content}! :+1:`, `I hate ${obj1.content}.. :nauseated_face:`, `${obj1.content} is okay, I guess.`];
               let opinion = opinions[Math.floor(Math.random() * opinions.length)];
-              let embed = new MessageEmbed()
+              let embed = new richEmbed()
                 .setTimestamp()
                 .setColor(funcs.rc())
                 .setDescription(`My opinion: ${opinion}`)

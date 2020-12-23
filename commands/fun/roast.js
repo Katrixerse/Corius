@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 module.exports.run = async (bot, message, args, funcs) => {
     try {
         let whoto = message.mentions.members.first();
@@ -40,7 +40,7 @@ module.exports.run = async (bot, message, args, funcs) => {
             "No, no. I am listening. It just takes me a moment to process so much stupid information all at once.",
             "I’m sorry, what language are you speaking? It sounds like bullshit.",
         ];
-        const embed = new MessageEmbed()
+        const embed = new richEmbed()
             .setTitle("Roasted :scream: :fire:!!")
             .setColor(funcs.rc())
             .setThumbnail("https://thumbs.gfycat.com/DependableBoringHumpbackwhale-size_restricted.gif")

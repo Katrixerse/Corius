@@ -1,9 +1,9 @@
-const { MessageEmbed } = require("discord.js");
+const { richEmbed } = require("discord.js");
 const moment = require("moment");
 const ms = require("ms");
 
 module.exports.run = (bot, message, args, funcs) => {
-  const embed = new MessageEmbed()
+  const embed = new richEmbed()
     .setColor(funcs.rc())
     .setTitle("Ping")
     .addField(":clock: Ping:", `${Math.round(bot.ping)}ms`)

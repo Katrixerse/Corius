@@ -339,8 +339,8 @@ function handleLeveling(message, member) {
                               let levelsNeeded;
                               if (highestUser.userId == message.author.id) levelsNeeded = "Already #1!";
                               else levelsNeeded = highestUser.userLevel - (row2.userLevel + 1);
-                              const { MessageEmbed } = require('discord.js');
-                              const embed = new MessageEmbed()
+                              const { richEmbed } = require('discord.js');
+                              const embed = new richEmbed()
                                   .setColor(funcs.rc())
                                   .setDescription(`Leveled up to: ${row2.userLevel + 1}`)
                                   .setTitle(`${message.author.username} has leveled up!`)

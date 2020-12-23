@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 module.exports.run = async (bot, message, args, funcs) => {
     try {
         let user = message.mentions.members.first();
@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args, funcs) => {
                 LISTENING: 'Listening to'
             };
 
-        let embed = new MessageEmbed()
+        let embed = new richEmbed()
             .setColor(funcs.rc())
             .setTitle('User info')
             .addField('**__Basic Info:__**', `Username: ${user.user.tag}\nUser Nickname: ${member.displayName}\nUser ID: ${user.id}`)

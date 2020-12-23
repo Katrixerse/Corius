@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 const req = require('node-superfetch');
 module.exports.run = async (bot, message, args, funcs) => {
       try {
@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args, funcs) => {
         } = await req
             .get("https://catfact.ninja/breeds");
         let num = Math.floor(Math.random() * body.data.length);
-        const embed = new MessageEmbed()
+        const embed = new richEmbed()
           .setTitle(`${body.data[num].breed}`)
           .addField(`Country:`, body.data[num].country)
           .addField(`Origin:`, body.data[num].origin)

@@ -2,7 +2,7 @@ function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 
 module.exports.run = async (bot, message, args, funcs, con) => {
   con.query(`SELECT gs.economyEnabled AS economy FROM guildSettings AS gs WHERE gs.guildId ="${message.guild.id}"`, (e, row) => {
@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
       con.query(`SELECT * FROM guildCash WHERE guildId = "${message.guild.id}" AND userId = "${whoto.id}"`, (e, row2) => {
         if (!row2 || row2.length == 0) return funcs.send(`User does not have any money.`);
         let networth = row2[0].userCash;
-        const embed = new MessageEmbed()
+        const embed = new richEmbed()
           .setAuthor(whoto.user.tag, whoto.user.avatarURL)
           .setColor(funcs.rc())
           .setFooter(bot.user.username)

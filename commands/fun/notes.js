@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 module.exports.run = (bot, message, args, funcs, con) => {
     con.query(`SELECT * FROM userNotes WHERE guildId = "${message.guild.id}" AND userId = "${message.author.id}"`, (e, notes) => {
         message.channel.send(`__**What would you like to do?**__\n\`\`\`Add a note (type 1)\nDelete a note (type 2)\nView your notes (type 3)\nType exit to cancel.\`\`\``).then(() => {
@@ -27,7 +27,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                 } else if (response == "2") {
                     if (notes == undefined || notes.length == 0) return funcs.send(`You dont have any notes to delete!`);
                     let n = 0;
-                    const embed = new MessageEmbed()
+                    const embed = new richEmbed()
                         .setAuthor(message.author.tag, message.author.avatarURL)
                         .setColor(funcs.rc())
                         .setFooter(bot.user.username)
@@ -62,7 +62,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                 } else if (response == "3") {
                     if (notes == undefined || notes.length == 0) return funcs.send(`You dont have any notes to view!`);
                     let n = 0;
-                    const embed = new MessageEmbed()
+                    const embed = new richEmbed()
                         .setAuthor(message.author.tag, message.author.avatarURL)
                         .setColor(funcs.rc())
                         .setFooter(bot.user.username)

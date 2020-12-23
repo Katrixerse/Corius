@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 const request = require("node-superfetch");
 module.exports.run = async (bot, message, args, funcs) => {
    if (!message.channel.nsfw) return funcs.send(`Cannot send NSFW content in a SFW channel.`);
@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args, funcs) => {
             key: "Google api key"
           });// hello zach kun
         if (!body.items.length) return funcs.send('No results found for ' + query + ".");
-        const embed = new MessageEmbed()
+        const embed = new richEmbed()
           .setColor(funcs.rc())
           .setTitle(body.items[0].snippet.title)
           .setDescription(body.items[0].snippet.description)

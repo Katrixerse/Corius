@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { richEmbed } = require("discord.js");
 module.exports.run = async (bot, message, args, funcs, con) => {
     con.query(`SELECT gc.caseNumber, gs.logsEnabled, gs.logsChannel, gw.welcomeMessage, gw.welcomeMessageEnabled, gw.welcomeChannel, gw.leaveMessageEnabled, gw.leaveMessage, gw.leaveChannel FROM guildCasenumber AS gc LEFT JOIN guildSettings AS gs ON gs.guildId = gc.guildId LEFT JOIN guildWLSystem AS gw ON gw.guildId = gc.guildId WHERE gc.guildId ="${message.guild.id}"`, async (e, row) => {
         row = row[0];
@@ -39,7 +39,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                         con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                                         if (!finder) return;
-                                                        let embed = new MessageEmbed()
+                                                        let embed = new richEmbed()
                                                             .setTitle(`Welcome Messages Enabled.`)
                                                             .setTimestamp()
                                                             .setThumbnail(bot.user.avatarURL)
@@ -71,7 +71,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                         con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                                         if (!finder) return;
-                                                        let embed = new MessageEmbed()
+                                                        let embed = new richEmbed()
                                                             .setTitle(`Welcome Messages Disabled.`)
                                                             .setTimestamp()
                                                             .setThumbnail(bot.user.avatarURL)
@@ -88,7 +88,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                         });
                                 }
                             } else if (resp.content.toLowerCase() == 'changewm' || resp.content.toLowerCase() == "2") {
-                                let embed = new MessageEmbed()
+                                let embed = new richEmbed()
                                     .setColor(funcs.rc())
                                     .setTimestamp()
                                     .setTitle(`What would you like your message to be?`)
@@ -116,7 +116,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                 con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                 let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                                 if (!finder) return;
-                                                let embed = new MessageEmbed()
+                                                let embed = new richEmbed()
                                                     .setTitle(`Welcome Messaged Changed.`)
                                                     .setTimestamp()
                                                     .setThumbnail(bot.user.avatarURL)
@@ -155,7 +155,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                 con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                 let f = message.guild.channels.find(c => c.name == row.logsChannel);
                                                 if (!f) return;
-                                                let embed = new MessageEmbed()
+                                                let embed = new richEmbed()
                                                     .setTitle(`Welcome Messages Channel Set.`)
                                                     .setTimestamp()
                                                     .setThumbnail(bot.user.avatarURL)
@@ -194,7 +194,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                         con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                                         if (!finder) return;
-                                                        let embed = new MessageEmbed()
+                                                        let embed = new richEmbed()
                                                             .setTitle(`Welcome Messages Enabled.`)
                                                             .setTimestamp()
                                                             .setThumbnail(bot.user.avatarURL)
@@ -226,7 +226,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                         con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                                         if (!finder) return;
-                                                        let embed = new MessageEmbed()
+                                                        let embed = new richEmbed()
                                                             .setTitle(`Leave Messages Disabled.`)
                                                             .setTimestamp()
                                                             .setThumbnail(bot.user.avatarURL)
@@ -243,7 +243,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                         });
                                 }
                             } else if (resp.content.toLowerCase() == 'changelm' || resp.content.toLowerCase() == "5") {
-                                let embed = new MessageEmbed()
+                                let embed = new richEmbed()
                                     .setColor(funcs.rc())
                                     .setTimestamp()
                                     .setTitle(`What would you like your message to be?`)
@@ -271,7 +271,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                 con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                 let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                                 if (!finder) return;
-                                                let embed = new MessageEmbed()
+                                                let embed = new richEmbed()
                                                     .setTitle(`Leave Messaged Changed.`)
                                                     .setTimestamp()
                                                     .setThumbnail(bot.user.avatarURL)
@@ -310,7 +310,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                 con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                 let f = message.guild.channels.find(c => c.name == row.logsChannel);
                                                 if (!f) return;
-                                                let embed = new MessageEmbed()
+                                                let embed = new richEmbed()
                                                     .setTitle(`Leave Messages Channel Set.`)
                                                     .setTimestamp()
                                                     .setThumbnail(bot.user.avatarURL)

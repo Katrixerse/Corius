@@ -1,5 +1,5 @@
 const {
-    MessageEmbed
+    richEmbed
 } = require('discord.js');
 let n = 0;
 
@@ -34,7 +34,7 @@ module.exports.run = async (bot, message, args, funcs, sql, con) => {
             let finder = message.guild.channels.find(c => c.name == row.logsChannel);
             if (!finder) return;
             if (n == 0) return;
-            let embed = new MessageEmbed()
+            let embed = new richEmbed()
                 .setTitle(`Role Added to All Users.`)
                 .setTimestamp()
                 .setAuthor(message.author.username, message.author.avatarURL)

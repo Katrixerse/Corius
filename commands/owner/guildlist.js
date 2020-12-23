@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 module.exports.run = (bot, message, args, funcs) => {
   if (message.author.id !== "130515926117253122" && message.author.id !== "307472480627326987") return message.channel.send("Only bot owner can use this command.");
   try {
@@ -12,7 +12,7 @@ module.exports.run = (bot, message, args, funcs) => {
       });
       return;
     }
-    let embed = new MessageEmbed()
+    let embed = new richEmbed()
       .setTimestamp()
       .setThumbnail(bot.user.avatarURL)
       .setFooter(`Total guilds: ${bot.guilds.size}`)

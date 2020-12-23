@@ -1,5 +1,5 @@
 const {
-    MessageEmbed
+    richEmbed
 } = require('discord.js');
 
 module.exports.run = async (bot, message, args, funcs, con) => {
@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                         if (row.logsEnabled !== "true") return;
                                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                         if (!finder) return;
-                                        let embed = new MessageEmbed()
+                                        let embed = new richEmbed()
                                             .setTitle(`Event Enabled.`)
                                             .setTimestamp()
                                             .setAuthor(message.author.username, message.author.avatarURL)
@@ -53,7 +53,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                         if (row.logsEnabled !== "true") return;
                                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                         if (!finder) return;
-                                        let embed = new MessageEmbed()
+                                        let embed = new richEmbed()
                                             .setTitle(`Event Enabled.`)
                                             .setTimestamp()
                                             .setAuthor(message.author.username, message.author.avatarURL)
@@ -73,7 +73,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                         if (row.logsEnabled !== "true") return;
                                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                         if (!finder) return;
-                                        let embed = new MessageEmbed()
+                                        let embed = new richEmbed()
                                             .setTitle(`Event Enabled.`)
                                             .setTimestamp()
                                             .setAuthor(message.author.username, message.author.avatarURL)
@@ -93,7 +93,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                         if (row.logsEnabled !== "true") return;
                                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                         if (!finder) return;
-                                        let embed = new MessageEmbed()
+                                        let embed = new richEmbed()
                                             .setTitle(`Event Enabled.`)
                                             .setTimestamp()
                                             .setAuthor(message.author.username, message.author.avatarURL)
@@ -113,7 +113,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                         if (row.logsEnabled !== "true") return;
                                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                         if (!finder) return;
-                                        let embed = new MessageEmbed()
+                                        let embed = new richEmbed()
                                             .setTitle(`Event Enabled.`)
                                             .setTimestamp()
                                             .setAuthor(message.author.username, message.author.avatarURL)
@@ -126,7 +126,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                             .addField(`Message:`, `[JumpTo](${message.url})`);
                                         message.guild.channels.get(finder.id).send(embed);
                                     } else if (response == "1") {
-                                        const embed = new MessageEmbed()
+                                        const embed = new richEmbed()
                                             .setAuthor(message.author.tag, message.author.avatarURL)
                                             .setColor(funcs.rc())
                                             .setFooter(bot.user.username)
@@ -161,7 +161,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                         if (row.logsEnabled !== "true") return;
                                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                         if (!finder) return;
-                                        let embed = new MessageEmbed()
+                                        let embed = new richEmbed()
                                             .setTitle(`Event Disabled.`)
                                             .setTimestamp()
                                             .setAuthor(message.author.username, message.author.avatarURL)
@@ -181,7 +181,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                         if (row.logsEnabled !== "true") return;
                                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                         if (!finder) return;
-                                        let embed = new MessageEmbed()
+                                        let embed = new richEmbed()
                                             .setTitle(`Event Disabled.`)
                                             .setTimestamp()
                                             .setAuthor(message.author.username, message.author.avatarURL)
@@ -201,7 +201,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                         if (row.logsEnabled !== "true") return;
                                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                         if (!finder) return;
-                                        let embed = new MessageEmbed()
+                                        let embed = new richEmbed()
                                             .setTitle(`Event Disabled.`)
                                             .setTimestamp()
                                             .setAuthor(message.author.username, message.author.avatarURL)
@@ -221,7 +221,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                         if (row.logsEnabled !== "true") return;
                                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                         if (!finder) return;
-                                        let embed = new MessageEmbed()
+                                        let embed = new richEmbed()
                                             .setTitle(`Event Disabled.`)
                                             .setTimestamp()
                                             .setAuthor(message.author.username, message.author.avatarURL)
@@ -241,7 +241,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                         if (row.logsEnabled !== "true") return;
                                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                         if (!finder) return;
-                                        let embed = new MessageEmbed()
+                                        let embed = new richEmbed()
                                             .setTitle(`Event Disabled.`)
                                             .setTimestamp()
                                             .setAuthor(message.author.username, message.author.avatarURL)
@@ -254,7 +254,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                             .addField(`Message:`, `[JumpTo](${message.url})`);
                                         message.guild.channels.get(finder.id).send(embed);
                                     } else if (response == "1") {
-                                        const embed = new MessageEmbed()
+                                        const embed = new richEmbed()
                                             .setAuthor(message.author.tag, message.author.avatarURL)
                                             .setColor(funcs.rc())
                                             .setFooter(bot.user.username)

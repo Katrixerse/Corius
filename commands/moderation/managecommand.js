@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 module.exports.run = (bot, message, args, funcs, con) => {
     try {
         const permissionNeeded = "ADMINISTRATOR";
@@ -36,7 +36,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                                 if (row.logsEnabled === "false") return;
                                 const finder = message.guild.channels.find(c => c.name === row.logsChannel);
                                 if (!finder) return;
-                                const embed = new MessageEmbed()
+                                const embed = new richEmbed()
                                     .setAuthor(message.author.tag, message.author.avatarURL)
                                     .setColor(funcs.rc())
                                     .setTitle(`Command Disabled`)
@@ -77,7 +77,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                                 if (row.logsEnabled === "false") return;
                                 const finder = message.guild.channels.find(c => c.name === row.logsChannel);
                                 if (!finder) return;
-                                const embed = new MessageEmbed()
+                                const embed = new richEmbed()
                                     .setAuthor(message.author.tag, message.author.avatarURL)
                                     .setColor(funcs.rc())
                                     .setTitle(`Command Enabled`)

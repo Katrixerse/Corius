@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 const request = require('request');
 module.exports.run = async (bot, message, args, funcs) => {
   try {
@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args, funcs) => {
       bod = bod.data;
       if (!bod) return funcs.send(`No subs found!`);
       const thumbnail = bod.icon_img;
-      const embed = new MessageEmbed()
+      const embed = new richEmbed()
         .setAuthor(message.author.tag, message.author.avatarURL)
         .setColor(funcs.rc())
         .setFooter(bot.user.username)

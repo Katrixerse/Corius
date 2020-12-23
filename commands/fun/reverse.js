@@ -1,7 +1,7 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 module.exports.run = async (bot, message, args, funcs) => {
     try {
-            let purgeusage = new MessageEmbed()
+            let purgeusage = new richEmbed()
                 .setTitle(`${row.prefix}reverse`)
                 .setAuthor("Reverse command usage.")
                 .setFooter(message.createdAt.toDateString(), bot.user.avatarURL)
@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args, funcs) => {
             if (!raw) return message.channel.send(purgeusage);
             let rev = raw.split("").reverse().join(``);
             if (!rev) return message.channel.send(purgeusage);
-            let em = new MessageEmbed()
+            let em = new richEmbed()
                 .setTitle(`Reverse`)
                 .addField(`Input`, `\`\`\`\n${args.join(` `)}\`\`\``)
                 .addField(`Output`, `\`\`\`\n${rev}\`\`\``)

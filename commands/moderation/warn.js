@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { richEmbed } = require("discord.js");
 const addEntry = require('../../assets/exports/addDbEntry');
 
 module.exports.run = (bot, message, args, funcs, con) => {
@@ -34,7 +34,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
             con.query(`SELECT gs.logsEnabled, gs.logsChannel, gc.caseNumber FROM guildSettings AS gs LEFT JOIN guildCasenumber as gc ON gc.guildId = gs.guildId WHERE gs.guildId="${message.guild.id}"`, (e, row) => {
                 row = row[0];
                 con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
-                const LogsEmbed = new MessageEmbed()
+                const LogsEmbed = new richEmbed()
                     .setTitle(`:warning: Member Warned :warning:`)
                     .setAuthor(message.author.tag, message.author.avatarURL)
                     .addField(`Member warned:`, userToWarn.user.username)

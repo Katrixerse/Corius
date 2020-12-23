@@ -1,6 +1,6 @@
 /*jshint -W018 */
 const {
-    MessageEmbed
+    richEmbed
 } = require("discord.js");
 const yt = require('ytdl-core');
 const ytdlDiscord = require('ytdl-core-discord');
@@ -296,7 +296,7 @@ async function handleVideo(message, msg, query, funcs) {
             })
             count++;
         });
-        const newembed = new MessageEmbed()
+        const newembed = new richEmbed()
             .setColor(funcs.rc())
             .setDescription(`Added **${count}** songs to the queue (playlist: limit 15 songs)`);
         msg.edit(newembed);
@@ -321,7 +321,7 @@ async function handleVideo(message, msg, query, funcs) {
                     requestedBy: message.author.username,
                     duration: info.length_seconds,
                 });
-                const newembed = new MessageEmbed()
+                const newembed = new richEmbed()
                     .setColor(funcs.rc())
                     .setDescription(`Added **${info.title}** to the queue`);
                 msg.edit(newembed);
@@ -352,7 +352,7 @@ async function handleVideo(message, msg, query, funcs) {
                 });
             if (!body.items.length) return funcs.send('No results found for ' + query + ".");
             const output = `[1] - ${body.items[0].snippet.title}.\n[2] - ${body.items[1].snippet.title}.\n[3] - ${body.items[2].snippet.title}.\n[4] - ${body.items[3].snippet.title}.\n[5] - ${body.items[4].snippet.title}.\n# Type exit or none to cancel the command.`;
-            const helpembed = new MessageEmbed()
+            const helpembed = new richEmbed()
                 .setColor(funcs.rc())
                 .addField('Multiple options found which one would you like to play?', "```" + output + "```");
             msg.edit(helpembed)
@@ -382,7 +382,7 @@ async function handleVideo(message, msg, query, funcs) {
                                             requestedBy: message.author.username,
                                             duration: info.length_seconds,
                                         });
-                                        const newembed = new MessageEmbed()
+                                        const newembed = new richEmbed()
                                             .setColor(funcs.rc())
                                             .setDescription(`Added **${info.title}** to the queue`);
                                         msg.edit(newembed);
@@ -408,7 +408,7 @@ async function handleVideo(message, msg, query, funcs) {
                                             requestedBy: message.author.username,
                                             duration: info.length_seconds,
                                         });
-                                        const newembed = new MessageEmbed()
+                                        const newembed = new richEmbed()
                                             .setColor(funcs.rc())
                                             .setDescription(`Added **${info.title}** to the queue`);
                                         msg.edit(newembed);
@@ -434,7 +434,7 @@ async function handleVideo(message, msg, query, funcs) {
                                             requestedBy: message.author.username,
                                             duration: info.length_seconds,
                                         });
-                                        const newembed = new MessageEmbed()
+                                        const newembed = new richEmbed()
                                             .setColor(funcs.rc())
                                             .setDescription(`Added **${info.title}** to the queue`);
                                         msg.edit(newembed);
@@ -460,7 +460,7 @@ async function handleVideo(message, msg, query, funcs) {
                                             requestedBy: message.author.username,
                                             duration: info.length_seconds,
                                         });
-                                        const newembed = new MessageEmbed()
+                                        const newembed = new richEmbed()
                                             .setColor(funcs.rc())
                                             .setDescription(`Added **${info.title}** to the queue`);
                                         msg.edit(newembed);
@@ -486,7 +486,7 @@ async function handleVideo(message, msg, query, funcs) {
                                             requestedBy: message.author.username,
                                             duration: info.length_seconds,
                                         });
-                                        const newembed = new MessageEmbed()
+                                        const newembed = new richEmbed()
                                             .setColor(funcs.rc())
                                             .setImage('')
                                             .setDescription(`Added **${info.title}** to the queue`);
@@ -557,12 +557,12 @@ async function play(message, msg, funcs, song) {
     });
 
     if (queue[message.guild.id].playing == true) {
-        const newembed = new MessageEmbed()
+        const newembed = new richEmbed()
             .setColor(0xD4AF37)
             .setDescription(`Playing: ${song.songs[0].title} as requested by: ${song.songs[0].requestedBy}`);
         message.channel.send(newembed);
     } else {
-        const newembed = new MessageEmbed()
+        const newembed = new richEmbed()
             .setColor(funcs.rc())
             .setDescription(`Playing: ${song.songs[0].title} as requested by: ${song.songs[0].requestedBy}`);
         msg.edit(newembed);

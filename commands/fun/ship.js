@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 module.exports.run = async (bot, message, args, funcs) => {
   try {
     let first = args[0];
@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args, funcs) => {
     let second = args[1];
     if (!second) return funcs.send(`You did not enter the second object to ship!`);
     let percentage = Math.floor(Math.random() * 100);
-    let em = new MessageEmbed()
+    let em = new richEmbed()
       .setTimestamp()
       .setTitle(`Ship`)
       .setDescription(`I ship ${first} and ${second} ${percentage}%!`)

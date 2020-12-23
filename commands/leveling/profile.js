@@ -1,5 +1,5 @@
 const {
-    MessageEmbed
+    richEmbed
 } = require('discord.js');
 const {
     registerFont
@@ -31,7 +31,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                         const networth = row1.length == 0 ? '$0' : `$${row1[0].userBankedCash + row1[0].userCash}`;
                         const rep = row3.length == 0 ? 0 : row3[0].rep;
                         if (row.levelingDisplayMode == "text") {
-                            const embed = new MessageEmbed()
+                            const embed = new richEmbed()
                                 .setColor(funcs.rc())
                                 .setTitle(`${whoto.user.tag}'s Profile`)
                                 .addField(`Prestige:`, prestige, true)

@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 
 module.exports.run = async (bot, message, args, funcs, con) => {
     try {
@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                 con.query(`SELECT gs.logsEnabled, gs.logsChannel, gc.caseNumber FROM guildSettings AS gs LEFT JOIN guildCasenumber as gc ON gc.guildId = gs.guildId WHERE gs.guildId="${message.guild.id}"`, (e, row) => {
                                     row = row[0];
                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
-                                    const LogsEmbed = new MessageEmbed()
+                                    const LogsEmbed = new richEmbed()
                                         .setTitle(`:arrow_up: Member Promoted To Mod :arrow_up:`)
                                         .setAuthor(message.author.tag, message.author.avatarURL)
                                         .addField(`Member promoted:`, userToMakeMod.user.username)
@@ -68,7 +68,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                 con.query(`SELECT gs.logsEnabled, gs.logsChannel, gc.caseNumber FROM guildSettings AS gs LEFT JOIN guildCasenumber as gc ON gc.guildId = gs.guildId WHERE gs.guildId="${message.guild.id}"`, (e, row) => {
                                     row = row[0];
                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
-                                    const LogsEmbed = new MessageEmbed()
+                                    const LogsEmbed = new richEmbed()
                                         .setTitle(`:arrow_down: Member Demoted From Mod :arrow_down:`)
                                         .setAuthor(message.author.tag, message.author.avatarURL)
                                         .addField(`Member demoted:`, userToMakeMod.user.username)
@@ -89,7 +89,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                         });
                     } else if (response == "3") {
                         if (rows.size == 0) return funcs.send(`No mods to view!`);
-                        const embed = new MessageEmbed()
+                        const embed = new richEmbed()
                             .setAuthor(message.author.tag, message.author.avatarURL)
                             .setColor(funcs.rc())
                             .setFooter(bot.user.username)

@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { richEmbed } = require("discord.js");
 module.exports.run = (bot, message, args, funcs, con) => {
     const permissionNeeded = `MANAGE_GUILD`;
     con.query(`SELECT guildMods FROM guildModerators WHERE guildId ="${message.guild.id}"`, (e, rows) => {
@@ -19,7 +19,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                 return funcs.send(`User has no punishments!`);
             } else {
                 row = row[0];
-                const embed = new MessageEmbed()
+                const embed = new richEmbed()
                     .setAuthor(user.user.tag, message.author.avatarURL)
                     .setColor(funcs.rc())
                     .setFooter(bot.user.username)

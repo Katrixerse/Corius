@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 const request = require('node-superfetch');
 module.exports.run = async (bot, message, args, funcs) => {
   if (!message.channel.nsfw) return funcs.send(`Cannot send NSFW content in a SFW channel.`);
@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args, funcs) => {
           const url2 = `https://api.roblox.com/ownership/hasasset?userId=${data}&assetId=102611803`;
           request.get(url2).then(a => {
             const Verifiedcheck = a.body;
-            const embed = new MessageEmbed()
+            const embed = new richEmbed()
               .setColor(funcs.rc())
               .setTitle("Username: " + saybot)
               .setDescription("User ID: " + data)

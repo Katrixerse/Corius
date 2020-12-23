@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 
 module.exports.run = (bot, message, args, funcs) => {
     const teams = [{

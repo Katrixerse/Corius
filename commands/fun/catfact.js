@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 const req = require('node-superfetch');
 module.exports.run = async (bot, message, args, funcs, con) => {
     try {
@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
             body
         } = await req
             .get("https://catfact.ninja/fact");
-        const embed = new MessageEmbed()
+        const embed = new richEmbed()
             .setTitle(`Cat Fact`)
             .setDescription(`${body.fact}`)
             .setColor(funcs.rc());

@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 module.exports.run = async (bot, message, args, funcs, con) => {
     try {
         con.query(`SELECT cn.caseNumber, gs.logsEnabled, gs.logsChannel FROM guildCasenumber as cn LEFT JOIN guildSettings as gs ON gs.guildId = cn.guildId WHERE cn.guildId ="${message.guild.id}"`, async (e, row) => {
@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                 if (row.logsEnabled !== "true") return;
                 let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                 if (!finder) return;
-                let embed = new MessageEmbed()
+                let embed = new richEmbed()
                     .setTitle(`User Blacklisted.`)
                     .setTimestamp()
                     .setAuthor(message.author.username, message.author.avatarURL)

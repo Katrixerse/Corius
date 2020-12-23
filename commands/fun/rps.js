@@ -1,5 +1,5 @@
 const {
-    MessageEmbed
+    richEmbed
 } = require('discord.js');
 
 module.exports.run = (bot, message, args, funcs) => {

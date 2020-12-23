@@ -1,9 +1,9 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 module.exports.run = async (bot, message, args, funcs) => {
     try {
         let what = args.join(` `);
         if (!what) return funcs.send(`You did not enter anything to display the character count of.`);
-        let e = new MessageEmbed()
+        let e = new richEmbed()
             .setColor(funcs.rc())
             .addField(`Text:`, what)
             .addField(`Count:`, `${what.length} character(s).`)

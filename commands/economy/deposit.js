@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 
 module.exports.run = (bot, message, args, funcs, con) => {
     con.query(`SELECT economyEnabled AS economy FROM guildSettings WHERE guildId ="${message.guild.id}"`, async (e, row2) => {
@@ -17,7 +17,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                     if (response == "all") {
                         const moneyToDep = parseInt(row.userCash);
                         con.query(`UPDATE guildCash SET userCash = 0, userBankedCash = ${row.userBankedCash + moneyToDep} WHERE guildId = ${message.guild.id} AND userId = ${message.author.id}`);
-                        const em = new MessageEmbed()
+                        const em = new richEmbed()
                             .setAuthor(message.author.tag, message.author.avatarURL)
                             .setColor(funcs.rc())
                             .setFooter(bot.user.username)
@@ -31,7 +31,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                         if (isNaN(moneyToDep) || moneyToDep <= 0) return funcs.send(`Not a valid amount to deposit!`);
                         if (moneyToDep >= row.userCash) return funcs.send(`You do not have that much money to deposit! ($${row.userCash})`);
                         con.query(`UPDATE guildCash SET userCash = ${row.userCash - moneyToDep}, userBankedCash = ${row.userBankedCash + moneyToDep} WHERE guildId = ${message.guild.id} AND userId = ${message.author.id}`);
-                        const em = new MessageEmbed()
+                        const em = new richEmbed()
                             .setAuthor(message.author.tag, message.author.avatarURL)
                             .setColor(funcs.rc())
                             .setFooter(bot.user.username)

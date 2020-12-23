@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 module.exports.run = (bot, message, args, funcs) => {
   try {
     let command = args.join(` `);
@@ -6,7 +6,7 @@ module.exports.run = (bot, message, args, funcs) => {
     let cmds = bot.commands;
     let results = cmds.filter(cmd => cmd.config.name.toLowerCase().includes(command.toLowerCase()));
     if (results.size === 0) return funcs.send(`Could not find any results!`);
-    const embed = new MessageEmbed()
+    const embed = new richEmbed()
       .setAuthor(message.author.tag, message.author.avatarURL)
       .setColor(funcs.rc())
       .setFooter(bot.user.username)
@@ -31,7 +31,7 @@ module.exports.run = (bot, message, args, funcs) => {
           if (field.name == `${response}#:`) {
             const commandname = field.value.split("\n")[0].substr(9);
             const result = results.filter(r => r.config.name == commandname);
-            const embed = new MessageEmbed()
+            const embed = new richEmbed()
               .setTitle("Results")
               .setColor(funcs.rc())
               .setTimestamp()

@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 module.exports.run = async (bot, message, args, funcs, con) => {
   try {
     con.query(`SELECT gs.economyEnabled AS economy FROM guildSettings AS gs WHERE gs.guildId ="${message.guild.id}"`, (e, settings) => {
@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
         if (num >= 100000) return funcs.send(`Number cannot be higher than 100,000.`);
         if (num > row2[0].userCash) return funcs.send(`Cannot bet a number higher than your balance.`);
         if (dice >= "25") {
-          let embed = new MessageEmbed()
+          let embed = new richEmbed()
             .setTitle(`You have won!`)
             .addField(`Won amount:`, won + "$")
             .addField(`New money value:`, `${row2[0].userCash + won}$`)
@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
           message.channel.send(embed);
           con.query(`UPDATE guildCash SET userCash = ${row2[0].userCash + won} WHERE guildId = "${message.guild.id}" AND userId = "${message.author.id}"`);
         } else {
-          let embed = new MessageEmbed()
+          let embed = new richEmbed()
             .setTitle(`You have lost!`)
             .addField(`Lost amount:`, won + "$")
             .addField(`New money value:`, `${row2[0].userCash - won}$`)

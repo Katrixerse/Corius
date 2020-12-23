@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 module.exports.run = async (bot, message, args, funcs, con) => {
     try {
         con.query(`SELECT cn.caseNumber, gs.logsEnabled, gs.logsChannel FROM guildCasenumber as cn LEFT JOIN guildSettings as gs ON gs.guildId = cn.guildId WHERE cn.guildId ="${message.guild.id}"`, (e, row) => {
@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                     }).then((response) => {
                         response = response.array()[0].content;
                         if (response == "1") {
-                            const embed = new MessageEmbed()
+                            const embed = new richEmbed()
                                 .setAuthor(message.author.tag, message.author.avatarURL)
                                 .setColor(funcs.rc())
                                 .setTitle(`Which command would you like to enable?`)
@@ -43,7 +43,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                             command = field.value;
                                         }
                                     });
-                                    const embed1 = new MessageEmbed()
+                                    const embed1 = new richEmbed()
                                         .setAuthor(message.author.tag, message.author.avatarURL)
                                         .setColor(funcs.rc())
                                         .setTitle(`In which channel would you like to enable that command?`)
@@ -76,7 +76,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                             if (row.logsEnabled !== "true") return;
                                             let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                             if (!finder) return;
-                                            let embed = new MessageEmbed()
+                                            let embed = new richEmbed()
                                                 .setTitle(`Command Enabled in **__${channel}__**.`)
                                                 .setTimestamp()
                                                 .setAuthor(message.author.username, message.author.avatarURL)
@@ -126,7 +126,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                             if (row.logsEnabled !== "true") return;
                                             let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                             if (!finder) return;
-                                            let embed = new MessageEmbed()
+                                            let embed = new richEmbed()
                                                 .setTitle(`Command Disabled in **__${channel.name}__**.`)
                                                 .setTimestamp()
                                                 .setAuthor(message.author.username, message.author.avatarURL)

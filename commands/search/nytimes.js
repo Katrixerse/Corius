@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 const request = require('node-superfetch');
 module.exports.run = async (bot, message, args, funcs) => {
   if (!message.channel.nsfw) return funcs.send(`Cannot send NSFW content in a SFW channel.`);
@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args, funcs) => {
         } = await fetch;
         if (!body.response.docs.length) return send('Could not find any results');
         const data = body.response.docs[Math.floor(Math.random() * body.response.docs.length)];
-        const embed = new MessageEmbed()
+        const embed = new richEmbed()
           .setColor(funcs.rc())
           .setAuthor('New York Times', 'https://i.imgur.com/ZbuTWwO.png', 'https://www.nytimes.com/')
           .addField('Publish Date', new Date(data.pub_date).toDateString(), true)

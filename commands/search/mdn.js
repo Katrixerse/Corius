@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 const request = require('node-superfetch');
 module.exports.run = async (bot, message, args, funcs) => {
   try {
@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args, funcs) => {
       });
     if (!body.documents.length) return funcs.send('Could not find any results.');
     const data = body.documents[0];
-    const embed = new MessageEmbed()
+    const embed = new richEmbed()
       .setColor(funcs.rc())
       .setAuthor('Mozilla Developer Network', 'https://i.imgur.com/DFGXabG.png', 'https://developer.mozilla.org/')
       .setURL(data.url)

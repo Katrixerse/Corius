@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 const request = require('node-superfetch');
 module.exports.run = async (bot, message, args, funcs) => {
     if (!message.channel.nsfw) return funcs.send("Cannot send NSFW content in a SFW channel.")
@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args, funcs) => {
             const allowed = message.channel.nsfw ? body.data.children : body.data.children.filter(post => !post.data.over_18);
             if (!allowed.length) return message.channel.send('It seems we are out of fresh memes!, Try again later.');
             const randomnumber = Math.floor(Math.random() * allowed.length)
-            const embed = new MessageEmbed()
+            const embed = new richEmbed()
                 .setColor(0x6B363E)
                 .setTitle(allowed[randomnumber].data.title)
                 .setDescription("Posted by: " + allowed[randomnumber].data.author)
@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args, funcs) => {
                 });
             const { posts } = await xml.parseStringAsync(text);
             if (posts.$.count === '0') return message.channel.send('No Results found for ' + query + '.');
-            const embed = new MessageEmbed()
+            const embed = new richEmbed()
                 .setTitle("Results for " + query)
                 .setImage(posts.post[0].$.file_url)
             return message.channel.send(embed)

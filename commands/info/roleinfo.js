@@ -1,11 +1,11 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 module.exports.run = async (bot, message, args, funcs) => {
     let roleName = args.join(' ')
     let role = message.guild.roles.find(r => r.name == roleName);
     if (!role) return message.channel.send(`I couldn't find the role: ${roleName} in this server.`);
     try {
         const guild = message.guild;
-        const embed = new MessageEmbed()
+        const embed = new richEmbed()
             .setColor(funcs.rc())
             .setTitle('Role Info')
             .addField('**__Info:__**', `Name: ${role.name}\n Role ID: ${role.id}\nColor: ${role.hexColor.toUpperCase()}\nCreated At: ${role.createdAt.toDateString()}\nHoisted: ${role.hoist ? 'Yes' : 'No'}\nMentionable: ${role.mentionable ? 'Yes' : 'No'}`)

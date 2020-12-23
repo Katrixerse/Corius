@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 module.exports.run = async (bot, message, args, funcs) => {
   try {
       message.channel.send(`***Enter the first object to pick from or type exit to cancel***`)
@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args, funcs) => {
                       let obj1chance = 100 - random;
                       let obj2chance = 100 - obj1chance;
                       if (obj1chance > obj2chance) {
-                        let embed = new MessageEmbed()
+                        let embed = new richEmbed()
                           .setTimestamp()
                           .setColor(funcs.rc())
                           .setTitle(`I have picked..`)
@@ -37,7 +37,7 @@ module.exports.run = async (bot, message, args, funcs) => {
                           .setThumbnail(bot.user.avatarURL);
                         message.channel.send(embed);
                       } else if (obj1chance < obj2chance) {
-                        let embed = new MessageEmbed()
+                        let embed = new richEmbed()
                           .setTimestamp()
                           .setColor(funcs.rc())
                           .setTitle(`I have picked..`)
@@ -47,7 +47,7 @@ module.exports.run = async (bot, message, args, funcs) => {
                           .setThumbnail(bot.user.avatarURL);
                         message.channel.send(embed);
                       } else {
-                        let embed = new MessageEmbed()
+                        let embed = new richEmbed()
                           .setTimestamp()
                           .setColor(rc)
                           .setTitle(`I have picked..`)

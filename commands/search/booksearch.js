@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 const request = require("node-superfetch");
 
 module.exports.run = async (bot, message, args, funcs) => {
@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args, funcs) => {
         const description = book.description;
         if (!description) return funcs.send(`Couldn't find that book.`);
         const descriptionfix = description.substr(0, 600);
-        let embed = new MessageEmbed()
+        let embed = new richEmbed()
             .setColor(funcs.rc())
             .setTitle(`${book.title}`)
             .addField(`Written by:`, book.authors)

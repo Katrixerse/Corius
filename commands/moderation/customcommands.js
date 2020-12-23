@@ -1,5 +1,5 @@
 const {
-    MessageEmbed
+    richEmbed
 } = require('discord.js');
 
 module.exports.run = async (bot, message, args, funcs, con) => {
@@ -45,7 +45,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                             if (row.logsEnabled !== "true") return;
                                             let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                             if (!finder) return;
-                                            let embed = new MessageEmbed()
+                                            let embed = new richEmbed()
                                                 .setTitle(`Custom Command Added.`)
                                                 .setTimestamp()
                                                 .setAuthor(message.author.username, message.author.avatarURL)
@@ -70,7 +70,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                             });
                         } else if (response == "2") {
                             if (rows.length == 0) return funcs.send(`No commands to delete!`);
-                            const embed = new MessageEmbed()
+                            const embed = new richEmbed()
                                 .setAuthor(message.author.tag, message.author.avatarURL)
                                 .setColor(funcs.rc())
                                 .setFooter(bot.user.username)
@@ -95,7 +95,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                         if (row.logsEnabled !== "true") return;
                                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                         if (!finder) return;
-                                        let embed = new MessageEmbed()
+                                        let embed = new richEmbed()
                                             .setTitle(`:warning: All Custom Commands Deleted. :warning:`)
                                             .setTimestamp()
                                             .setAuthor(message.author.username, message.author.avatarURL)
@@ -120,7 +120,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                             if (row.logsEnabled !== "true") return;
                                             let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                             if (!finder) return;
-                                            let embed = new MessageEmbed()
+                                            let embed = new richEmbed()
                                                 .setTitle(`Custom Command Deleted.`)
                                                 .setTimestamp()
                                                 .setAuthor(message.author.username, message.author.avatarURL)
@@ -141,7 +141,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                             });
                         } else if (response == "3") {
                             if (rows.length == 0) return funcs.send(`No commands to view!`);
-                            const embed = new MessageEmbed()
+                            const embed = new richEmbed()
                                 .setAuthor(message.author.tag, message.author.avatarURL)
                                 .setColor(funcs.rc())
                                 .setFooter(bot.user.username)

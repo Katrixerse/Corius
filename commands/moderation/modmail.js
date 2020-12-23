@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 module.exports.run = (bot, message, args, funcs, con) => {
     con.query(`SELECT cn.caseNumber, gs.logsEnabled, gp.prefix, gs.logsChannel FROM guildCasenumber as cn LEFT JOIN guildSettings as gs ON gs.guildId = cn.guildId LEFT JOIN guildPrefix AS gp ON cn.guildId = gp.guildId WHERE cn.guildId ="${message.guild.id}"`, (e, row) => {
         con.query(`SELECT * FROM guildModMail WHERE guildId ="${message.guild.id}"`, (e, modmail) => {
@@ -34,7 +34,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                                     if (row.logsEnabled !== "true") return;
                                     let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                     if (!finder) return;
-                                    let embed = new MessageEmbed()
+                                    let embed = new richEmbed()
                                         .setTitle(`Modmail Channel Changed.`)
                                         .setTimestamp()
                                         .setAuthor(message.author.username, message.author.avatarURL)
@@ -68,7 +68,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                                         if (row.logsEnabled !== "true") return;
                                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                         if (!finder) return;
-                                        let embed = new MessageEmbed()
+                                        let embed = new richEmbed()
                                             .setTitle(`Modmail Mode Changed.`)
                                             .setTimestamp()
                                             .setAuthor(message.author.username, message.author.avatarURL)
@@ -88,7 +88,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                                         if (row.logsEnabled !== "true") return;
                                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                         if (!finder) return;
-                                        let embed = new MessageEmbed()
+                                        let embed = new richEmbed()
                                             .setTitle(`Modmail Mode Changed.`)
                                             .setTimestamp()
                                             .setAuthor(message.author.username, message.author.avatarURL)

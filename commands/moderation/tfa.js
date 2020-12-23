@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 module.exports.run = async (bot, message, args, funcs, con) => {
     try {
         con.query(`SELECT cn.caseNumber, gs.logsEnabled, gs.twoFAEnabled, gs.twoFAPass, gs.logsChannel FROM guildCasenumber as cn LEFT JOIN guildSettings as gs ON gs.guildId = cn.guildId WHERE cn.guildId ="${message.guild.id}"`, async (e, row) => {
@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                             if (row.logsEnabled !== "true") return;
                             let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                             if (!finder) return;
-                            let embed = new MessageEmbed()
+                            let embed = new richEmbed()
                                 .setTitle(`TFSS Enabled.`)
                                 .setTimestamp()
                                 .setAuthor(message.author.username, message.author.avatarURL)
@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                             if (row.logsEnabled !== "true") return;
                             let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                             if (!finder) return;
-                            let embed = new MessageEmbed()
+                            let embed = new richEmbed()
                                 .setTitle(`TFSS Disabled.`)
                                 .setTimestamp()
                                 .setAuthor(message.author.username, message.author.avatarURL)
@@ -67,7 +67,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                     if (row.logsEnabled !== "true") return;
                                     let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                     if (!finder) return;
-                                    let embed = new MessageEmbed()
+                                    let embed = new richEmbed()
                                         .setTitle(`TFSS Password Updated.`)
                                         .setTimestamp()
                                         .setAuthor(message.author.username, message.author.avatarURL)
@@ -85,7 +85,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                 });
                             });
                         } else if (response == "4") {
-                            const embed = new MessageEmbed()
+                            const embed = new richEmbed()
                                 .setAuthor(message.author.tag, message.author.avatarURL)
                                 .setColor(funcs.rc())
                                 .setFooter(bot.user.username)

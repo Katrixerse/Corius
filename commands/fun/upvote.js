@@ -1,7 +1,7 @@
-const { MessageEmbed } = require("discord.js");
+const { richEmbed } = require("discord.js");
 module.exports.run = async (bot, message, args, funcs) => {
     try {
-        const embed = new MessageEmbed()
+        const embed = new richEmbed()
             .setColor(funcs.rc())
             .addField("Can upvote the bot at: ", "https://discordbots.org/bot/535162498534473738/vote");
         return message.channel.send(embed);

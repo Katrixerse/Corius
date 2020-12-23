@@ -1,4 +1,4 @@
-var { MessageEmbed } = require("discord.js");
+var { richEmbed } = require("discord.js");
 module.exports.run = async (bot, message, args, funcs, con) => {
     try {
         con.query("SELECT cn.caseNumber, gs.logsEnabled, gp.prefix, gs.logsChannel FROM guildCasenumber as cn LEFT JOIN guildSettings as gs ON gs.guildId = cn.guildId LEFT JOIN guildPrefix AS gp ON cn.guildId = gp.guildId WHERE cn.guildId =\"" + message.guild.id + "\"", function (e, row) {
@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                         }).then(function (response) {
                             response = response.array()[0].content;
                             if (response == "1") {
-                                var embed_1 = new MessageEmbed()
+                                var embed_1 = new richEmbed()
                                     .setTitle("Selfroles")
                                     .setColor(funcs.rc())
                                     .setTimestamp()
@@ -63,7 +63,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                 });
                                                 if (!finder)
                                                     return;
-                                                var embed_2 = new MessageEmbed()
+                                                var embed_2 = new richEmbed()
                                                     .setTitle("Selfrole Added to Member.")
                                                     .setTimestamp()
                                                     .setAuthor(message.author.username, message.author.avatarURL)
@@ -83,7 +83,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                     });
                                 });
                             } else if (response == "2") {
-                                var embed_3 = new MessageEmbed()
+                                var embed_3 = new richEmbed()
                                     .setTitle("Selfroles")
                                     .setColor(funcs.rc())
                                     .setTimestamp()
@@ -128,7 +128,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                 });
                                                 if (!finder)
                                                     return;
-                                                var embed_4 = new MessageEmbed()
+                                                var embed_4 = new richEmbed()
                                                     .setTitle("Selfrole Removed from Member.")
                                                     .setTimestamp()
                                                     .setAuthor(message.author.username, message.author.avatarURL)
@@ -148,7 +148,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                     });
                                 });
                             } else if (response == "3") {
-                                var embed_5 = new MessageEmbed()
+                                var embed_5 = new richEmbed()
                                     .setTitle("Selfroles")
                                     .setColor(funcs.rc())
                                     .setTimestamp();
@@ -192,7 +192,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                         });
                                         if (!finder)
                                             return;
-                                        var embed = new MessageEmbed()
+                                        var embed = new richEmbed()
                                             .setTitle("Selfrole Added.")
                                             .setTimestamp()
                                             .setAuthor(message.author.username, message.author.avatarURL)
@@ -213,7 +213,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                 var permissionNeeded = "MANAGE_GUILD";
                                 if (!message.member.hasPermission(permissionNeeded, false, true, true) && !row1.includes(message.author.id))
                                     return funcs.send("You do not have the permission " + permissionNeeded + " to use this command.", true);
-                                var embed_6 = new MessageEmbed()
+                                var embed_6 = new richEmbed()
                                     .setTitle("Selfroles")
                                     .setColor(funcs.rc())
                                     .setTimestamp()
@@ -258,7 +258,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                 });
                                                 if (!finder)
                                                     return;
-                                                var embed_7 = new MessageEmbed()
+                                                var embed_7 = new richEmbed()
                                                     .setTitle("Selfrole Removed from Member.")
                                                     .setTimestamp()
                                                     .setAuthor(message.author.username, message.author.avatarURL)

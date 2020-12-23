@@ -1,11 +1,11 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 const math = require('mathjs');
 module.exports.run = (bot, message, args, funcs) => {
     try {
             let whatto = args.join(` `);
             if (!whatto) return send(`Please provide a math equation to solve.`);
                 let result = math.evaluate(whatto).toString();
-                const embed = new MessageEmbed()
+                const embed = new richEmbed()
                     .setTitle("Math Result")
                     .setColor(funcs.rc())
                     .setThumbnail(bot.user.avatarURL)

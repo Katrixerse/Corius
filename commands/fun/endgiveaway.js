@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 
 module.exports.run = async (bot, message, args, funcs, con) => {
     try {
@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                     const permissionNeeded = "MANAGE_GUILD";
                     if (!message.member.hasPermission(permissionNeeded, false, true, true) && !row1.includes(message.author.id)) return funcs.send(`You do not have the permission ${permissionNeeded} to use this command.`, true);
                     if (giveaways.length == 0) return funcs.send(`No giveaways to end!`);
-                    const embed = new MessageEmbed()
+                    const embed = new richEmbed()
                         .setAuthor(message.author.tag, message.author.avatarURL)
                         .setColor(funcs.rc())
                         .setFooter(bot.user.username)
@@ -38,7 +38,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                     if (row.logsEnabled !== "true") return;
                                     let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                     if (!finder) return;
-                                    let embed = new MessageEmbed()
+                                    let embed = new richEmbed()
                                         .setTitle(`Giveaway Canceled.`)
                                         .setTimestamp()
                                         .setAuthor(message.author.username, message.author.avatarURL)

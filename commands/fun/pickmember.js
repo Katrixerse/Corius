@@ -1,7 +1,7 @@
-const { MessageEmbed } = require("discord.js");
+const { richEmbed } = require("discord.js");
 
 module.exports.run = (bot, message, args, funcs) => {
-    const usage = new MessageEmbed()
+    const usage = new richEmbed()
         .setColor(funcs.rc())
         .setTimestamp()
         .setTitle(`Usage`)
@@ -15,14 +15,14 @@ module.exports.run = (bot, message, args, funcs) => {
     }
     const flags = args.join(` `) == "-N" ? "none" : args.join(` `);
     if (flags == "none") {
-        const em = new MessageEmbed()
+        const em = new richEmbed()
             .setDescription(`**Member picked:** ${message.guild.members.random()}`)
             .setColor(funcs.rc())
         message.channel.send(em);
     } else if (flags == "-O") {
         const om = message.guild.members.filter(m => m.presence.status == "online");
         if (!om || om.size == 0) return funcs.send(`No members that are online found!`);
-        const em = new MessageEmbed()
+        const em = new richEmbed()
             .setDescription(`**Member picked:** ${om.random()}`)
             .setColor(funcs.rc())
         message.channel.send(em);
@@ -33,7 +33,7 @@ module.exports.run = (bot, message, args, funcs) => {
         if (!r) return funcs.send(`No roles with name ${role} found!`);
         const om = message.guild.members.filter(m => m.presence.status == "online").filter(m => m.roles.filter(r => r.name == role).size > 0);
         if (!om || om.size == 0) return funcs.send(`No members that are online with that role found!`);
-        const em = new MessageEmbed()
+        const em = new richEmbed()
             .setDescription(`**Member picked:** ${om.random()}`)
             .setColor(funcs.rc())
         message.channel.send(em);
@@ -44,7 +44,7 @@ module.exports.run = (bot, message, args, funcs) => {
         if (!r) return funcs.send(`No roles with name ${role} found!`);
         const om = message.guild.members.filter(m => m.roles.filter(r => r.name == role).size > 0);
         if (!om || om.size == 0) return funcs.send(`No members with that role found!`);
-        const em = new MessageEmbed()
+        const em = new richEmbed()
             .setDescription(`**Member picked:** ${om.random()}`)
             .setColor(funcs.rc())
         message.channel.send(em);

@@ -20,8 +20,8 @@ module.exports.run = (bot, message, args, funcs, con) => {
                             const bug = response.replace(/\"+/g);
                             con.query(`INSERT INTO botBugs (userId, bugMessage, bugReplied, bugId) VALUES (?, ?, ?, ?)`, [message.author.id, bug, "false", message.createdTimestamp.toString()]);
                             funcs.send(`Bug has been successfully reported. Thank you for your help.`);
-                            const { MessageEmbed } = require('discord.js');
-                            const embed = new MessageEmbed()
+                            const { richEmbed } = require('discord.js');
+                            const embed = new richEmbed()
                                 .setColor(funcs.rc())
                                 .setTimestamp()
                                 .addField(`Bug message:`, bug)

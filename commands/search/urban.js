@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { richEmbed } = require('discord.js');
 const request = require('node-superfetch');
 const types = ['top'];
 module.exports.run = async (bot, message, args, funcs) => {
@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args, funcs) => {
           });
         if (!body.list.length) return send('Could not find any results.');
         const data = body.list[types === 'top' ? 0 : Math.floor(Math.random() * body.list.length)];
-        const embed = new MessageEmbed()
+        const embed = new richEmbed()
           .setColor(funcs.rc())
           .setAuthor('Urban Dictionary', 'https://i.imgur.com/Fo0nRTe.png', 'https://www.urbandictionary.com/')
           .setURL(data.permalink)
