@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const ms = require('ms');
 module.exports.run = async (bot, message, args, funcs, con) => {
     try {
@@ -57,7 +57,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                 mess3.delete();
                                                 mess4.delete();
                                                 con.query(`INSERT INTO guildGiveaways (guildId, giveawayName, giveawayTime, giveawayRunning, timeId, winnerCount) VALUES (?, ?, ?, ?, ?, ?)`, [message.guild.id, giveawayName, giveawayTime, 1, message.createdTimestamp.toString(), winners]);
-                                                const embed = new RichEmbed()
+                                                const embed = new MessageEmbed()
                                                     .setAuthor(message.author.tag, message.author.avatarURL)
                                                     .setColor(funcs.rc())
                                                     .setFooter(bot.user.username)
@@ -82,7 +82,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                                     users = users.filter(u => !u.bot);
                                                                     if (users.size == 0) {
                                                                         funcs.send(`No users reacted. Giveaway ended!`);
-                                                                        const newEmbed = new RichEmbed()
+                                                                        const newEmbed = new MessageEmbed()
                                                                             .setAuthor(message.author.tag, message.author.avatarURL)
                                                                             .setColor(funcs.rc())
                                                                             .setFooter(bot.user.username)
@@ -97,7 +97,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                                     }
                                                                     const usersWon = users.random(row[0].winnerCount);
                                                                     funcs.send(`Congratulations, ${usersWon.map(u => u.tag).join(", ")}, you have won!`);
-                                                                    const newEmbed = new RichEmbed()
+                                                                    const newEmbed = new MessageEmbed()
                                                                         .setAuthor(message.author.tag, message.author.avatarURL)
                                                                         .setColor(funcs.rc())
                                                                         .setFooter(bot.user.username)
@@ -125,7 +125,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                                                             if (resp.content.toLowerCase().includes("reroll")) {
                                                                                                 const usersWon = users.random(row[0].winnerCount);
                                                                                                 funcs.send(`Congratulations, ${usersWon.map(u => u.tag).join(", ")}, you have won!`);;
-                                                                                                const newEmbed = new RichEmbed()
+                                                                                                const newEmbed = new MessageEmbed()
                                                                                                     .setAuthor(message.author.tag, message.author.avatarURL)
                                                                                                     .setColor(funcs.rc())
                                                                                                     .setFooter(bot.user.username)

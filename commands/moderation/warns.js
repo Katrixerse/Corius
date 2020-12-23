@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 module.exports.run = (bot, message, args, funcs, con) => {
     const permissionNeeded = `MANAGE_GUILD`;
     con.query(`SELECT guildMods FROM guildModerators WHERE guildId ="${message.guild.id}"`, (e, rows) => {
@@ -6,7 +6,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
         if (!message.member.hasPermission(permissionNeeded, false, true, true) && !row1.includes(message.author.id)) return funcs.send(`You are missing the ${permissionNeeded} permission to use this command!`, true);
         const user = message.mentions.members.first();
         if (!user) return funcs.send(`You did not mention a user to display their warns!`);
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
             .setTitle(`${user.user.username}'s warns`)
             .setColor(funcs.rc())
             .setThumbnail(user.user.avatarURL);

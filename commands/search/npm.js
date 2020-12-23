@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const moment = require('moment');
 const req = require('node-superfetch');
 module.exports.run = async (bot, message, args, funcs) => {
@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args, funcs) => {
     const version = body.versions[body['dist-tags'].latest];
     const maintainers = body.maintainers.map(user => user.name);
     const dependencies = version.dependencies ? Object.keys(version.dependencies) : null;
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor(funcs.rc())
       .setAuthor('NPM', 'https://i.imgur.com/ErKf5Y0.png', 'https://www.npmjs.com/')
       .setTitle(body.name)

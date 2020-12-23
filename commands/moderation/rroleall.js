@@ -1,5 +1,5 @@
 const {
-    RichEmbed
+    MessageEmbed
 } = require('discord.js');
 let n = 0;
 
@@ -37,7 +37,7 @@ module.exports.run = async (bot, message, args, funcs, sql, con) => {
                 let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                 if (!finder) return;
                 if (membersaddedrole.size == 0) return;
-                let embed = new RichEmbed()
+                let embed = new MessageEmbed()
                     .setTitle(`Role Removed from All Users.`)
                     .setTimestamp()
                     .setAuthor(message.author.username, message.author.avatarURL)
@@ -76,7 +76,7 @@ module.exports.run = async (bot, message, args, funcs, sql, con) => {
                 let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                 if (!finder) return;
                 if (membersaddedrole.size == 0) return;
-                let embed = new RichEmbed()
+                let embed = new MessageEmbed()
                     .setTitle(`Role Removed from All Bots.`)
                     .setTimestamp()
                     .setAuthor(message.author.username, message.author.avatarURL)

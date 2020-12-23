@@ -1,5 +1,5 @@
 const f = require('../../assets/exports/funcs.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { dbConnect } = require('./../../assets/handlers/dbConnection.js');
 
 let con;
@@ -20,7 +20,7 @@ module.exports = (bot, message) => {
         if (message.attachments.size > 0) {
             try {
                 message.attachments.forEach(a => {
-                    const embed = new RichEmbed()
+                    const embed = new MessageEmbed()
                         .setColor(funcs.rc())
                         .setTitle(`:x: Image Deleted! :x:`)
                         .addField(`Deleted by:`, message.author.username + ` (ID: ${message.author.id})`)
@@ -35,7 +35,7 @@ module.exports = (bot, message) => {
             }
         } else {
             try {
-                const embed = new RichEmbed()
+                const embed = new MessageEmbed()
                     .setColor(funcs.rc())
                     .setTitle(`:x: Message Deleted! :x:`)
                     .addField(`Deleted by:`, message.author.username + ` (ID: ${message.author.id})`)

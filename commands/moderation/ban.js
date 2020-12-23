@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const addEntry = require('../../assets/exports/addDbEntry.js');
 
 module.exports.run = (bot, message, args, funcs, con) => {
@@ -27,7 +27,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
         con.query(`SELECT gs.logsEnabled, gs.logsChannel, gc.caseNumber FROM guildSettings AS gs LEFT JOIN guildCasenumber as gc ON gc.guildId = gs.guildId WHERE gs.guildId="${message.guild.id}"`, (e, row) => {
           row = row[0];
           con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
-          const LogsEmbed = new RichEmbed()
+          const LogsEmbed = new MessageEmbed()
             .setTitle(`:hammer: Member Banned :hammer:`)
             .setAuthor(message.author.tag, message.author.avatarURL)
             .addField(`Member banned:`, userToBan.user.username)
@@ -69,7 +69,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                 con.query(`SELECT gs.logsEnabled, gs.logsChannel, gc.caseNumber FROM guildSettings AS gs LEFT JOIN guildCasenumber as gc ON gc.guildId = gs.guildId WHERE gs.guildId="${message.guild.id}"`, (e, row) => {
                   row = row[0];
                   con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
-                  const LogsEmbed = new RichEmbed()
+                  const LogsEmbed = new MessageEmbed()
                     .setTitle(`:hammer: Member Banned :hammer:`)
                     .setAuthor(message.author.tag, message.author.avatarURL)
                     .addField(`Member banned:`, user.username)
@@ -97,7 +97,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
         const memberToBan = message.guild.members.filter(m => m.user.username.toLowerCase() === userToBan.content.toLowerCase());
         if (memberToBan === undefined || memberToBan === null || memberToBan.size == 0) return funcs.send(`Cannot find a member with that username. (There were also no mentions in your message.)`, true);
         if (memberToBan.size > 1) {
-          const multipleUsersEmbed = new RichEmbed()
+          const multipleUsersEmbed = new MessageEmbed()
             .setColor(funcs.rc())
             .setTitle(`Multiple Users Detected!`);
           var n = 0;
@@ -137,7 +137,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                   con.query(`SELECT gs.logsEnabled, gs.logsChannel, gc.caseNumber FROM guildSettings AS gs LEFT JOIN guildCasenumber as gc ON gc.guildId = gs.guildId WHERE gs.guildId="${message.guild.id}"`, (e, row) => {
                     row = row[0];
                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
-                    const LogsEmbed = new RichEmbed()
+                    const LogsEmbed = new MessageEmbed()
                       .setTitle(`:hammer: Member Banned :hammer:`)
                       .setAuthor(message.author.tag, message.author.avatarURL)
                       .addField(`Member banned:`, memberToBan.user.username)
@@ -173,7 +173,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
           con.query(`SELECT gs.logsEnabled, gs.logsChannel, gc.caseNumber FROM guildSettings AS gs LEFT JOIN guildCasenumber as gc ON gc.guildId = gs.guildId WHERE gs.guildId="${message.guild.id}"`, (e, row) => {
             row = row[0];
             con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
-            const LogsEmbed = new RichEmbed()
+            const LogsEmbed = new MessageEmbed()
               .setTitle(`:hammer: Member Banned :hammer:`)
               .setAuthor(message.author.tag, message.author.avatarURL)
               .addField(`Member banned:`, memberToBan.user.username)

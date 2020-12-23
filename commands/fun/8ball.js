@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 module.exports.run = (bot, message, args, funcs) => {
     const question = args.join(` `);
     if (!question) return funcs.send(`You did not provide a question!`, true);
@@ -25,7 +25,7 @@ module.exports.run = (bot, message, args, funcs) => {
         `● Very doubtful.`
     ];
     const response = responses[Math.floor(Math.random() * responses.length)];
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
         .setAuthor(message.author.tag, message.author.avatarURL)
         .setColor(funcs.rc())
         .setFooter(bot.user.username)

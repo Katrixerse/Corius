@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports.run = async (bot, message, args, funcs, con) => {
     try {
@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                 con.query(`SELECT * FROM userWarns WHERE guildId ="${message.guild.id}" AND userId ="${mem.id}"`, (e, rows) => {
                     if (!rows || rows.length == 0) return funcs.send(`User has no warns!`);
                     let n = 0;
-                    const embed = new RichEmbed()
+                    const embed = new MessageEmbed()
                         .setTitle(`${mem.user.username}'s warns`)
                         .setColor(funcs.rc())
                         .setDescription(`Choose which warn to edit by entering the number of the warn.`)
@@ -49,7 +49,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                             con.query(`UPDATE userWarns SET warning ="${response}" WHERE guildId = "${message.guild.id}" AND userId = "${mem.id}" AND warning ="${warnText}"`);
                                             funcs.send(`Warning successfully updated!`);
                                             con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
-                                            const embed = new RichEmbed()
+                                            const embed = new MessageEmbed()
                                                 .setAuthor(message.author.tag, message.author.avatarURL)
                                                 .setColor(funcs.rc())
                                                 .setFooter(bot.user.username)

@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const request = require('node-superfetch');
 const moment = require('moment');
 const { GITHUB_USER, GITHUB_PASS } = require('../../assets/config.json');
@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args, funcs) => {
         Authorization: `Basic ${`${GITHUB_USER}:${GITHUB_PASS}`}`
       });
     const descriptionfix = body.description.substr(0, 300);
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor(funcs.rc())
       .setAuthor('GitHub', 'https://i.imgur.com/e4HunUm.png', 'https://github.com/')
       .setTitle(body.full_name)

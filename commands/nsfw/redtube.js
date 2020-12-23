@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const request = require('node-superfetch');
 module.exports.run = async (bot, message, args, funcs) => {
   if (!message.channel.nsfw) return funcs.send(`Can't send NSFW content in a SFW channel.`);
@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args, funcs) => {
     } = await request
       .get(`https://api.redtube.com/?data=redtube.Videos.searchVideos&output=json&search=${thing}&thumbsize=medium`);
     if (body.count == 0) return funcs.send(`No results found.`);
-    let embed = new RichEmbed()
+    let embed = new MessageEmbed()
       .setTitle(`Redtube`)
       .addField(`Searched for:`, thing)
       .addField(`Found:`, body.videos[0].video.title)

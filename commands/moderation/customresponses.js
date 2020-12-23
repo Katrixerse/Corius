@@ -1,5 +1,5 @@
 const {
-    RichEmbed
+    MessageEmbed
 } = require('discord.js');
 
 module.exports.run = async (bot, message, args, funcs, con) => {
@@ -43,7 +43,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                             if (row.logsEnabled !== "true") return;
                                             let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                             if (!finder) return;
-                                            let embed = new RichEmbed()
+                                            let embed = new MessageEmbed()
                                                 .setTitle(`Custom Response Added.`)
                                                 .setTimestamp()
                                                 .setAuthor(message.author.username, message.author.avatarURL)
@@ -68,7 +68,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                             });
                         } else if (response == "2") {
                             if (rows.length == 0) return funcs.send(`No response to delete!`);
-                            const embed = new RichEmbed()
+                            const embed = new MessageEmbed()
                                 .setAuthor(message.author.tag, message.author.avatarURL)
                                 .setColor(funcs.rc())
                                 .setFooter(bot.user.username)
@@ -93,7 +93,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                         if (row.logsEnabled !== "true") return;
                                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                         if (!finder) return;
-                                        let embed = new RichEmbed()
+                                        let embed = new MessageEmbed()
                                             .setTitle(`:warning: All Custom Responses Deleted. :warning:`)
                                             .setTimestamp()
                                             .setAuthor(message.author.username, message.author.avatarURL)
@@ -118,7 +118,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                             if (row.logsEnabled !== "true") return;
                                             let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                             if (!finder) return;
-                                            let embed = new RichEmbed()
+                                            let embed = new MessageEmbed()
                                                 .setTitle(`Custom Response Deleted.`)
                                                 .setTimestamp()
                                                 .setAuthor(message.author.username, message.author.avatarURL)
@@ -139,7 +139,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                             });
                         } else if (response == "3") {
                             if (rows.length == 0) return funcs.send(`No responses to view!`);
-                            const embed = new RichEmbed()
+                            const embed = new MessageEmbed()
                                 .setAuthor(message.author.tag, message.author.avatarURL)
                                 .setColor(funcs.rc())
                                 .setFooter(bot.user.username)

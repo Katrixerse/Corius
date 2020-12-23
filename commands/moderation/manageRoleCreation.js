@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 module.exports.run = async (bot, message, args, funcs, con) => {
     try {
         con.query(`SELECT cn.caseNumber, gs.logsEnabled, gdcs.rolesEnabled, gp.prefix, gs.logsChannel FROM guildCasenumber as cn LEFT JOIN guildSettings as gs ON gs.guildId = cn.guildId LEFT JOIN guildPrefix AS gp ON cn.guildId = gp.guildId LEFT JOIN guildDisabledCreations AS gdcs ON cn.guildId = gdcs.guildId WHERE cn.guildId ="${message.guild.id}"`, (e, row) => {
@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                         if (row.logsEnabled !== "true") return;
                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                         if (!finder) return;
-                        let embed = new RichEmbed()
+                        let embed = new MessageEmbed()
                             .setTitle(`Role Creation Enabled.`)
                             .setTimestamp()
                             .setAuthor(message.author.username, message.author.avatarURL)
@@ -39,7 +39,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                         if (row.logsEnabled !== "true") return;
                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                         if (!finder) return;
-                        let embed = new RichEmbed()
+                        let embed = new MessageEmbed()
                             .setTitle(`Role Creation Disabled.`)
                             .setTimestamp()
                             .setAuthor(message.author.username, message.author.avatarURL)

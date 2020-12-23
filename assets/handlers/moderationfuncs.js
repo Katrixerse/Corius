@@ -1,5 +1,5 @@
 //const mfuncs = require("../../assets/exports/funcs.js");
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const permissionNeeded = "BAN_MEMBERS";
 const ms = require('ms');
 const Funcs = require('./../exports/funcs');
@@ -23,7 +23,7 @@ module.exports = {
     if (hasInvites) {
       message.delete();
       const date = Date.now();
-      let embed = new RichEmbed()
+      let embed = new MessageEmbed()
         .setTitle(`Auto Moderation`)
         .setColor(funcs.rc())
         .setTimestamp()
@@ -65,7 +65,7 @@ module.exports = {
     if (hasLinks) {
       message.delete();
       const date = Date.now();
-      let embed = new RichEmbed()
+      let embed = new MessageEmbed()
         .setTitle(`Auto Moderation`)
         .setColor(funcs.rc())
         .setTimestamp()
@@ -106,7 +106,7 @@ module.exports = {
     if (result == true) {
       message.delete();
       const date = Date.now();
-      let embed = new RichEmbed()
+      let embed = new MessageEmbed()
         .setTitle(`Auto Moderation`)
         .setColor(funcs.rc())
         .setTimestamp()
@@ -149,7 +149,7 @@ module.exports = {
     if (getPercent >= 0.25) {
       message.delete();
       const date = Date.now();
-      let embed = new RichEmbed()
+      let embed = new MessageEmbed()
         .setTitle(`Auto Moderation`)
         .setColor(funcs.rc())
         .setTimestamp()
@@ -194,7 +194,7 @@ module.exports = {
     if (result == true && findDuplicates(StringCheck).length >= 5) {
       message.delete();
       const date = Date.now();
-      let embed = new RichEmbed()
+      let embed = new MessageEmbed()
         .setTitle(`Auto Moderation`)
         .setColor(funcs.rc())
         .setTimestamp()
@@ -240,7 +240,7 @@ module.exports = {
       message.delete();
       y = 0;
       const date = Date.now();
-      let embed = new RichEmbed()
+      let embed = new MessageEmbed()
         .setTitle(`Auto Moderation`)
         .setColor(funcs.rc())
         .setTimestamp()
@@ -280,7 +280,7 @@ module.exports = {
       if (message.embeds[i].title.includes("") && !message.author.bot) {
         message.delete();
         const date = Date.now();
-        let embed = new RichEmbed()
+        let embed = new MessageEmbed()
           .setTitle(`Auto Moderation`)
           .setColor(funcs.rc())
           .setTimestamp()

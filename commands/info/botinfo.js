@@ -1,9 +1,9 @@
-const { RichEmbed, version } = require("discord.js");
+const { MessageEmbed, version } = require("discord.js");
 const ms = require('ms');
 
 module.exports.run = (bot, message, args, funcs) => {
     try {
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
           .setColor(funcs.rc())
           .setTitle(':computer: Corius Stats')
           .setDescription('Corius\'s current statistics.')

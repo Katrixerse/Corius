@@ -1,11 +1,11 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 module.exports.run = async (bot, message, args, funcs) => {
   try {
     let stuff = [
       "Boom! :boom: You're dead! :skull:",
       "Wow you made it alive.. :upside_down:"
     ];
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setTitle("Rousian Roullete.")
       .setColor(funcs.rc())
       .setTimestamp()

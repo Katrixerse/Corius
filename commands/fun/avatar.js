@@ -1,7 +1,7 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 module.exports.run = (bot, message, args, funcs) => {
     const person = message.mentions.members.first() || message.member;
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
         .setAuthor(message.author.tag, message.author.avatarURL)
         .setColor(funcs.rc())
         .setFooter(bot.user.username)

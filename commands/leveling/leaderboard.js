@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                 if (response == "1") {
                                     con.query(`SELECT * FROM guildCash ORDER BY userCash + userBankedCash DESC LIMIT 10`, (e, row) => {
                                         if (row.length == 0) return funcs.send(`No users have earned any cash yet!`);
-                                        const em = new RichEmbed()
+                                        const em = new MessageEmbed()
                                             .setColor(funcs.rc())
                                             .setTimestamp()
                                             .setThumbnail(message.author.avatarURL)
@@ -47,7 +47,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                 } else if (response == "2") {
                                     con.query(`SELECT * FROM guildCash WHERE guildId = "${message.guild.id}" ORDER BY userCash + userBankedCash DESC LIMIT 10`, (e, row) => {
                                         if (row.length == 0) return funcs.send(`No users have earned any cash yet!`);
-                                        const em = new RichEmbed()
+                                        const em = new MessageEmbed()
                                             .setColor(funcs.rc())
                                             .setTimestamp()
                                             .setThumbnail(message.author.avatarURL)
@@ -80,7 +80,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                 if (response == "1") {
                                     con.query(`SELECT * FROM guildLeveling ORDER BY userPrestige DESC, userLevel DESC, userXP DESC LIMIT 10`, (e, row) => {
                                         if (row.length == 0) return funcs.send(`No users have earned any xp yet!`);
-                                        const em = new RichEmbed()
+                                        const em = new MessageEmbed()
                                             .setColor(funcs.rc())
                                             .setTimestamp()
                                             .setThumbnail(message.author.avatarURL)
@@ -97,7 +97,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                 } else if (response == "2") {
                                     con.query(`SELECT * FROM guildLeveling WHERE guildId = "${message.guild.id}" ORDER BY userPrestige DESC, userLevel DESC, userXP DESC LIMIT 10`, (e, row) => {
                                         if (row.length == 0) return funcs.send(`No users have earned any xp yet!`);
-                                        const em = new RichEmbed()
+                                        const em = new MessageEmbed()
                                             .setColor(funcs.rc())
                                             .setTimestamp()
                                             .setThumbnail(message.author.avatarURL)

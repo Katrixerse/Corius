@@ -1,5 +1,5 @@
 const {
-    RichEmbed
+    MessageEmbed
 } = require("discord.js");
 const ms = require("ms");
 const addEntry = require('../../assets/exports/addDbEntry');
@@ -9,7 +9,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
         let row1 = rows.map(r => r.guildMods);
         if (!message.member.hasPermission(permissionNeeded, false, true, true) && !row1.includes(message.author.id)) return funcs.send(`You do not have the permission ${permissionNeeded} to use this command.`, true);
         if (!message.guild.me.hasPermission("MANAGE_ROLES")) return funcs.send(`I do not have the permission MANAGE_ROLES to execute this command!`, true);
-        const usage = new RichEmbed()
+        const usage = new MessageEmbed()
             .setAuthor(message.author.tag, message.author.avatarURL)
             .setColor(funcs.rc())
             .setFooter(bot.user.username)
@@ -51,7 +51,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
             con.query(`SELECT gs.logsEnabled, gs.logsChannel, gc.caseNumber FROM guildSettings AS gs LEFT JOIN guildCasenumber as gc ON gc.guildId = gs.guildId WHERE gs.guildId="${message.guild.id}"`, (e, row) => {
                 row = row[0];
                 con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
-                const LogsEmbed = new RichEmbed()
+                const LogsEmbed = new MessageEmbed()
                     .setTitle(`:mute: Member Muted :mute:`)
                     .setAuthor(message.author.tag, message.author.avatarURL)
                     .addField(`Member muted:`, userToMute.user.username)

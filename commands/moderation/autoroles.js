@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports.run = async (bot, message, args, funcs, con) => {
     try {
@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                 if (row.logsEnabled !== "true") return;
                                 let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                 if (!finder) return;
-                                let embed = new RichEmbed()
+                                let embed = new MessageEmbed()
                                     .setTitle(`Autoroles Enabled.`)
                                     .setTimestamp()
                                     .setAuthor(message.author.username, message.author.avatarURL)
@@ -43,7 +43,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                 if (row.logsEnabled !== "true") return;
                                 let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                 if (!finder) return;
-                                let embed = new RichEmbed()
+                                let embed = new MessageEmbed()
                                     .setTitle(`Autoroles Disabled.`)
                                     .setTimestamp()
                                     .setAuthor(message.author.username, message.author.avatarURL)
@@ -56,7 +56,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                 message.guild.channels.get(finder.id).send(embed);
                             } else if (response == "3") {
                                 if (roles.length == 1) return funcs.send(`No roles have been added yet!`);
-                                const embed = new RichEmbed()
+                                const embed = new MessageEmbed()
                                     .setAuthor(message.author.tag, message.author.avatarURL)
                                     .setColor(funcs.rc())
                                     .setFooter(bot.user.username)
@@ -89,7 +89,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                         if (row.logsEnabled !== "true") return;
                                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                         if (!finder) return;
-                                        let embed = new RichEmbed()
+                                        let embed = new MessageEmbed()
                                             .setTitle(`Role Added To Autoroles.`)
                                             .setTimestamp()
                                             .setAuthor(message.author.username, message.author.avatarURL)
@@ -108,7 +108,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                 });
                             } else if (response == "5") {
                                 if (roles.length == 1) return funcs.send(`There are no autoroles to remove!`);
-                                const embed = new RichEmbed()
+                                const embed = new MessageEmbed()
                                     .setAuthor(message.author.tag, message.author.avatarURL)
                                     .setColor(funcs.rc())
                                     .setFooter(bot.user.username)
@@ -137,7 +137,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                 if (row.logsEnabled !== "true") return;
                                                 let finder1 = message.guild.channels.find(c => c.name == row.logsChannel);
                                                 if (!finder1) return;
-                                                let embed = new RichEmbed()
+                                                let embed = new MessageEmbed()
                                                     .setTitle(`Role Removed From Autoroles.`)
                                                     .setTimestamp()
                                                     .setAuthor(message.author.username, message.author.avatarURL)

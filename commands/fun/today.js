@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const req = require('node-superfetch');
 module.exports.run = async (bot, message, args, funcs) => {
   try {
@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args, funcs) => {
     const body = JSON.parse(text);
     const events = body.data.Events;
     const event = events[Math.floor(Math.random() * events.length)];
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor(funcs.rc())
       .setURL(body.url)
       .setTitle(`On this day (${body.date})...`)

@@ -1,11 +1,11 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 var things = [
     "heads",
     'tails'
 ];
 module.exports.run = (bot, message, args, funcs) => {
     try {
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
             .setTitle("Coin Flip")
             .setTimestamp()
             .setThumbnail(bot.user.avatarURL)

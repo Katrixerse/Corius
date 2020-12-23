@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 module.exports.run = (bot, message, args, funcs, con) => {
     con.query(`SELECT * FROM guildModerators WHERE guildId ="${message.guild.id}"`, (e, rows) => {
         const mods = rows.map(r => r.guildMods);
@@ -21,7 +21,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                         if (row.logsEnabled !== "true") return;
                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                         if (!finder) return;
-                        let embed = new RichEmbed()
+                        let embed = new MessageEmbed()
                             .setTitle(`Modonly Enabled.`)
                             .setTimestamp()
                             .setAuthor(message.author.username, message.author.avatarURL)
@@ -40,7 +40,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                         if (row.logsEnabled !== "true") return;
                         let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                         if (!finder) return;
-                        let embed = new RichEmbed()
+                        let embed = new MessageEmbed()
                             .setTitle(`Modonly Disabled.`)
                             .setTimestamp()
                             .setAuthor(message.author.username, message.author.avatarURL)

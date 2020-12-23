@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports.run = async (bot, message, args, funcs, sql, con) => {
     try {
@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args, funcs, sql, con) => {
                 if (row.logsEnabled !== "true") return;
                 let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                 if (!finder) return;
-                let embed = new RichEmbed()
+                let embed = new MessageEmbed()
                     .setTitle(`Role Removed.`)
                     .setTimestamp()
                     .setAuthor(message.author.username, message.author.avatarURL)

@@ -1,4 +1,4 @@
-const { RichEmbed} = require('discord.js');
+const { MessageEmbed} = require('discord.js');
 const request = require('node-superfetch');
 module.exports.run = async (bot, message, args, funcs) => {
   if (!message.channel.nsfw) return funcs.send(`Cannot send NSFW content in a SFW channel.`);
@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args, funcs) => {
       });
     const allowed = body.data.children;
     const randomnumber = Math.floor(Math.random() * allowed.length);
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor(funcs.rc())
       .setTitle(allowed[randomnumber].data.title)
       .setDescription("Posted by: " + allowed[randomnumber].data.author)

@@ -1,11 +1,11 @@
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 module.exports.run = (bot, message, args, funcs, con) => {
   if (!message.member.hasPermission(`BAN_MEMBERS`, false, true, true)) return funcs.send(`You need the BAN_MEMBERS permission to use this command!`);
   if (!message.guild.me.hasPermission(`BAN_MEMBERS`)) return funcs.send(`I need the BAN_MEMBERS permission to execute this command!`);
   message.guild.fetchBans().then(users => {
     if (users.size == 0) return funcs.send(`There are no banned users in this guild!`);
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setAuthor(message.author.tag, message.author.avatarURL)
       .setColor(funcs.rc())
       .setDescription(`Which user would you like to unban? (enter the number)`)
@@ -34,7 +34,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
               con.query(`SELECT gs.logsEnabled, gs.logsChannel, gc.caseNumber FROM guildSettings AS gs LEFT JOIN guildCasenumber as gc ON gc.guildId = gs.guildId WHERE gs.guildId="${message.guild.id}"`, (e, row) => {
                 row = row[0];
                 con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
-                const LogsEmbed = new RichEmbed()
+                const LogsEmbed = new MessageEmbed()
                   .setTitle(`:hammer: Member Unbanned :hammer:`)
                   .setAuthor(message.author.tag, message.author.avatarURL)
                   .addField(`Member unbanned:`, userPicked)

@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports.run = (bot, message, args, funcs, con) => {
     con.query(`SELECT gc.caseNumber, gs.levelingDisplayMode, gs.logsEnabled, gs.logsChannel, gs.levelingEnabled FROM guildCasenumber AS gc LEFT JOIN guildSettings AS gs ON gs.guildId = gc.guildId WHERE gc.guildId ="${message.guild.id}"`, (e, row) => {
@@ -33,7 +33,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                                                 con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                 let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                                 if (!finder) return;
-                                                let embed = new RichEmbed()
+                                                let embed = new MessageEmbed()
                                                     .setTitle(`Leveling Enabled.`)
                                                     .setTimestamp()
                                                     .setThumbnail(bot.user.avatarURL)
@@ -65,7 +65,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                                                 con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                 let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                                 if (!finder) return;
-                                                let embed = new RichEmbed()
+                                                let embed = new MessageEmbed()
                                                     .setTitle(`Leveling Disabled.`)
                                                     .setTimestamp()
                                                     .setThumbnail(bot.user.avatarURL)
@@ -113,7 +113,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                     let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                     if (!finder) return;
-                                    let embed = new RichEmbed()
+                                    let embed = new MessageEmbed()
                                         .setTitle(`Leveling Display Mode Changed.`)
                                         .setTimestamp()
                                         .setThumbnail(bot.user.avatarURL)
@@ -131,7 +131,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                     let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                     if (!finder) return;
-                                    let embed = new RichEmbed()
+                                    let embed = new MessageEmbed()
                                         .setTitle(`Leveling Display Mode Changed.`)
                                         .setTimestamp()
                                         .setThumbnail(bot.user.avatarURL)

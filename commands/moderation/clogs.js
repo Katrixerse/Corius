@@ -1,5 +1,5 @@
 const {
-    RichEmbed
+    MessageEmbed
 } = require('discord.js');
 module.exports.run = async (bot, message, args, funcs, con) => {
     try {
@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                             //if (row.logsEnabled !== "true") return;
                             let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                             if (!finder) return;
-                            let embed = new RichEmbed()
+                            let embed = new MessageEmbed()
                                 .setTitle(`Chat logs Enabled.`)
                                 .setTimestamp()
                                 .setAuthor(message.author.username, message.author.avatarURL)
@@ -43,7 +43,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                             if (row.logsEnabled !== "true") return;
                             let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                             if (!finder) return;
-                            let embed = new RichEmbed()
+                            let embed = new MessageEmbed()
                                 .setTitle(`Chat logs Disabled.`)
                                 .setTimestamp()
                                 .setAuthor(message.author.username, message.author.avatarURL)
@@ -71,7 +71,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                     if (row.logsEnabled !== "true") return;
                                     let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                     if (!finder) return;
-                                    let embed = new RichEmbed()
+                                    let embed = new MessageEmbed()
                                         .setTitle(`Chat logs Channel Updated.`)
                                         .setTimestamp()
                                         .setAuthor(message.author.username, message.author.avatarURL)

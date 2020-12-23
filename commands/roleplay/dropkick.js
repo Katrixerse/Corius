@@ -1,9 +1,9 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 module.exports.run = async (bot, message, args, funcs) => {
   try {
     let whoto = message.mentions.members.first();
     if (!whoto) return funcs.send(`Please mention somebody to dropkick..`);
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setTitle("Drop Kicked")
       .setDescription(`${whoto.user.username}, you got a drop kick from ${message.author.username}!`)
       .setColor(funcs.rc())

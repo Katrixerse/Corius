@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const f = require('../../assets/exports/funcs.js');
 const { dbConnect } = require('./../../assets/handlers/dbConnection.js');
 
@@ -15,7 +15,7 @@ module.exports = (bot, message, newMessage) => {
         const channel = message.guild.channels.find(c => c.name == row.clogsChannel);
         if (!channel) return;
         if (message.content.startsWith("http") || message.content.startsWith("https")) return;
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
             .setAuthor(message.author.tag, message.author.avatarURL)
             .setColor(funcs.rc())
             .setTitle(`:pencil: Message Edited! :pencil:`)

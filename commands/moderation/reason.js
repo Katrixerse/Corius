@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 async function embedSan(embed) {
     embed.message ? delete embed.message : null;
     embed.footer ? delete embed.footer.embed : null;
@@ -48,7 +48,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                     const thumbnail = em.thumbnail ? em.thumbnail.url : null;
                     const image = em.image ? em.image.url : null;
                     const color = em.color ? em.color : null;
-                    const newem = new RichEmbed();
+                    const newem = new MessageEmbed();
                     if (title)
                         newem.setTitle(title)
                     if (description)
@@ -72,7 +72,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                     logmes.edit(newem).catch(e => funcs.send(`Error while editing message: ${e.message}`));
                     funcs.send(`Reason successfully updated!`);
                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
-                    const embed = new RichEmbed()
+                    const embed = new MessageEmbed()
                         .setAuthor(message.author.tag, message.author.avatarURL)
                         .setColor(funcs.rc())
                         .setFooter(bot.user.username)

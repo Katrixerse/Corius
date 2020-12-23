@@ -1,10 +1,10 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const filterLevels = ['Off', 'No Role', 'Everyone'];
 const verificationLevels = ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻'];
 module.exports.run = async (bot, message, args, funcs) => {
     try {
         const guild = message.guild;
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
             .setColor(funcs.rc())
             .setTitle('Guild Info')
             .addField('**__Info:__**', `Owner: ${guild.owner.username}\nGuild ID: ${guild.id}\nRegion: ${guild.region}\nServer Created On: ${guild.createdAt.toDateString()}`)

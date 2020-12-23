@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 module.exports.run = async (bot, message, args, funcs) => {
     try {
         message.channel.send(`**__Enter the first object to choose from or type exit to cancel__**`)
@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args, funcs) => {
                                         if (obj2.content == obj1.content) return funcs.send(`Can't choose between the same thing.`);
                                         var thing = [obj1.content, obj2.content];
                                         let picked = thing[Math.floor(Math.random() * thing.length)];
-                                        let embed = new RichEmbed()
+                                        let embed = new MessageEmbed()
                                             .setTimestamp()
                                             .setColor(funcs.rc())
                                             .setDescription(`**__Picked object:__** ${picked}`)

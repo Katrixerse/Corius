@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const Funcs = require('./../../assets/exports/funcs');
 const { dbConnect } = require('./../../assets/handlers/dbConnection.js');
 
@@ -19,7 +19,7 @@ module.exports = (bot, reaction, user) => {
                 messages = messages.filter(m => m.embeds !== null && m.embeds.length > 0);
                 messages.forEach(message => {
                     if (message.embeds[0].description !== rmessage.content) return;
-                    const embed = new RichEmbed()
+                    const embed = new MessageEmbed()
                         .setAuthor(rmessage.author.tag, rmessage.author.avatarURL)
                         .setColor(funcs.rc())
                         .setTitle(`Message Starred`)

@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports.run = (bot, message, args, funcs) => {
     const teams = [{
@@ -31,7 +31,7 @@ module.exports.run = (bot, message, args, funcs) => {
     }];
     const roles = message.guild.roles.filter(r => teams.some(t => t.name == r.name));
     if (roles.size == 0) return funcs.send(`No teams found in this guild.`);
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
         .setAuthor(message.author.tag, message.author.avatarURL)
         .setColor(funcs.rc())
         .setFooter(bot.user.username)

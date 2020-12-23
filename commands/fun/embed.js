@@ -1,8 +1,8 @@
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 module.exports.run = (bot, message, args, funcs) => {
   const text = args.join(` `).substr(0, 1000) || "No text provided.";
-  const embed = new RichEmbed().setDescription(text).setColor(funcs.rc());
+  const embed = new MessageEmbed().setDescription(text).setColor(funcs.rc());
   message.channel.send(embed);
 };
 

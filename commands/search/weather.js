@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const request = require("node-superfetch");
 const { OPENWEATHERMAP_KEY } = require('../../assets/config.json');
 module.exports.run = async (bot, message, args, funcs) => {
@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args, funcs) => {
                 units: 'metric',
                 appid: OPENWEATHERMAP_KEY
             });
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
             .setColor(0xFF7A09)
             .setAuthor(
                 `${body.name}, ${body.sys.country}`,

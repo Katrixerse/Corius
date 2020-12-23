@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 module.exports.run = async (bot, message, args, funcs, con) => {
     try {
         con.query(`SELECT gs.economyEnabled AS economy FROM guildSettings AS gs WHERE gs.guildId ="${message.guild.id}"`, (e, row) => {
@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                 if (slotOne === slotTwo && slotOne === slotThree || slotFour === slotFive && slotFour === slotSix || slotSeven === slotEight && slotSeven === slotNine) {
                     let wonamount = Math.floor(bet * 3);
                     con.query(`UPDATE guildCash SET userCash = ${row1.userCash + wonamount} WHERE guildId = ${message.guild.id} AND userId = ${message.author.id}`);
-                    let wonembed = new RichEmbed()
+                    let wonembed = new MessageEmbed()
                         .setTitle(`You have Won!`)
                         .setColor(funcs.rc())
                         .addField("Line 1:", `${slotFour}|${slotFive}|${slotSix}`)
@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                 } else {
                     let lostamount = Math.floor(bet * 3);
                     con.query(`UPDATE guildCash SET userCash = ${row1.userCash - lostamount} WHERE guildId = ${message.guild.id} AND userId = ${message.author.id}`);
-                    let lostembed = new RichEmbed()
+                    let lostembed = new MessageEmbed()
                         .setTitle(`You have Lost!`)
                         .setColor(funcs.rc())
                         .addField("Line 1:", `${slotFour}|${slotFive}|${slotSix}`)

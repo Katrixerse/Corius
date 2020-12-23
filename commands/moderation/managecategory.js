@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const moment = require('moment');
 var cats = ['moderation', 'fun', 'economy', 'miscellaneous', 'music', 'search', 'rpg', 'roleplay', 'leveling', 'info', 'canvas', 'teams', 'nsfw', 'reddit'];
 module.exports.run = async (bot, message, args, funcs, con) => {
@@ -34,7 +34,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Fun has been enabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has enabled a category.`)
@@ -50,7 +50,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     con.query(`UPDATE guildDisabledSettings SET categories = "${row.categories.split("moderation")}" WHERE guildId = ${message.guild.id}`);
                                                     funcs.send(`Moderation has been enabled.`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has enabled a category.`)
@@ -67,7 +67,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Economy has been enabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has enabled a category.`)
@@ -84,7 +84,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Roleplay has been enabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has enabled a category.`)
@@ -101,7 +101,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Reddit has been enabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has enabled a category.`)
@@ -118,7 +118,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Nsfw has been enabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has enabled a category.`)
@@ -135,7 +135,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Canvas has been enabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has enabled a category.`)
@@ -152,7 +152,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Leveling has been enabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has enabled a category.`)
@@ -169,7 +169,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Teams has been enabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has enabled a category.`)
@@ -186,7 +186,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Info has been enabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has enabled a category.`)
@@ -203,7 +203,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Miscellaneous has been enabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has enabled a category.`)
@@ -220,7 +220,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Music has been enabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has enabled a category.`)
@@ -237,7 +237,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Search has been enabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has enabled a category.`)
@@ -254,7 +254,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`RPG has been enabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has enabled a category.`)
@@ -291,7 +291,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Fun has been disabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has disabled a category.`)
@@ -308,7 +308,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Moderation has been disabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has disabled a category.`)
@@ -325,7 +325,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Reddit has been disabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has disabled a category.`)
@@ -342,7 +342,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Nsfw has been disabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has disabled a category.`)
@@ -359,7 +359,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Economy has been disabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has disabled a category.`)
@@ -376,7 +376,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Roleplay has been disabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has disabled a category.`)
@@ -393,7 +393,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Canvas has been disabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has disabled a category.`)
@@ -410,7 +410,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Leveling has been disabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has disabled a category.`)
@@ -427,7 +427,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Teams has been disabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has disabled a category.`)
@@ -444,7 +444,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Miscellaneous has been disabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has disabled a category.`)
@@ -461,7 +461,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Music has been disabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has disabled a category.`)
@@ -478,7 +478,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Info has been disabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has disabled a category.`)
@@ -495,7 +495,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Leveling has been disabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has disabled a category.`)
@@ -512,7 +512,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`RPG has been disabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has disabled a category.`)
@@ -529,7 +529,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                     funcs.send(`Search has been disabled.`);
                                                     con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                     if (row.logsEnabled !== "true") return;
-                                                    let embed = new RichEmbed()
+                                                    let embed = new MessageEmbed()
                                                         .setAuthor(message.author.username, message.author.avatarURL)
                                                         .setColor(rs)
                                                         .setDescription(`${message.author.username} has disabled a category.`)

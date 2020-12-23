@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const util = require('util');
 
 module.exports.run = (bot, message, args, funcs) => {
@@ -18,7 +18,7 @@ module.exports.run = (bot, message, args, funcs) => {
       if (MAX_CHARS > 1023) {
         message.channel.send("Output exceeded 1024 characters. Sending as a file.", { files: [{ attachment: Buffer.from(checkCharLength), name: "output.txt" }] });
       }
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
         .setColor(funcs.rc())
         .addField(":inbox_tray: Input: ", `\`\`\`${code}\`\`\``)
         .addField(":outbox_tray: Output: ", `\`\`\`js\n${clean(evaled)}\n\`\`\``);
@@ -27,7 +27,7 @@ module.exports.run = (bot, message, args, funcs) => {
         if (err.message.length > 1023) {
             message.channel.send("Output exceeded 1024 characters. Sending as a file.", { files: [{ attachment: Buffer.from(err.message), name: "output.txt" }] });
         }
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
         .setColor(funcs.rc())
         .addField(":inbox_tray: Input: ", `\`\`\`${code}\`\`\``)
         .addField(":outbox_tray: Output: ", `\`\`\`${clean(err.message)}\`\`\``);

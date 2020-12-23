@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 module.exports.run = (bot, message, args, funcs, con) => {
   const permissionNeeded = "KICK_MEMBERS";
   con.query(`SELECT guildMods FROM guildModerators WHERE guildId ="${message.guild.id}"`, (e, rows) => {
@@ -47,7 +47,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                   if (row.logsEnabled == "false") return;
                   const finder = message.guild.channels.find(c => c.name == row.logsChannel);
                   if (!finder) return;
-                  const embed = new RichEmbed()
+                  const embed = new MessageEmbed()
                     .setAuthor(message.author.tag, message.author.avatarURL)
                     .setColor(funcs.rc())
                     .setFooter(bot.user.username)

@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports.run = async (bot, message, args, funcs, con) => {
     try {
@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
             con.query(`SELECT * FROM guildModerators WHERE guildId ="${message.guild.id}"`, async (e, rows) => {
                 let row1 = rows.map(r => r.guildMods);
                 if (!message.member.hasPermission(`MANAGE_GUILD`, false, true, true) && !row1.includes(message.author.id)) return funcs.send(`You need the MANAGE_GUILD permission to use this command.`);
-                const usage = new RichEmbed()
+                const usage = new MessageEmbed()
                     .setTitle(`Purge Usage`)
                     .addField(`Example:`, `purge humans | bots (numberOfMessages) (optional: userToDeleteFrom (if humans option picked))`)
                     .setFooter(`Tip: this command will only delete messages from this channel.`)
@@ -42,7 +42,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                             if (row.logsEnabled == "true") {
                                 let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                 if (!finder) return;
-                                let embed = new RichEmbed()
+                                let embed = new MessageEmbed()
                                     .setTitle(`Messages Purged`)
                                     .setTimestamp()
                                     .setAuthor(user.user.username, user.user.avatarURL)
@@ -70,7 +70,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                             if (row.logsEnabled == "true") {
                                 let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                                 if (!finder) return;
-                                let embed = new RichEmbed()
+                                let embed = new MessageEmbed()
                                     .setTitle(`Messages Purged From Humans`)
                                     .setTimestamp()
                                     .setAuthor(message.member.user.username, message.member.user.avatarURL)
@@ -108,7 +108,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                         if (row.logsEnabled == "true") {
                             let finder = message.guild.channels.find(c => c.name == row.logsChannel);
                             if (!finder) return;
-                            let embed = new RichEmbed()
+                            let embed = new MessageEmbed()
                                 .setTitle(`Messages Purged From Bots`)
                                 .setTimestamp()
                                 .setAuthor(message.member.user.username, message.member.user.avatarURL)
