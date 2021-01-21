@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
             if (!rows || rows.length == 0) {
                 con.query(`INSERT INTO afk (guildId, userId, isAfk, afkReason) VALUES (?, ?, ?, ?)`, [message.guild.id, message.author.id, 1, reason]);
             }
-            con.query(`UPDATE afk SET isAfk = 1, afkReason = "${reason}" WHERE guildId = '${message.guild.id}' AND userId = '${message.author.id}'`);
+            con.query(`UPDATE afk SET isAfk = 1, afkReason = ${con.escape(reason)} WHERE guildId = '${message.guild.id}' AND userId = '${message.author.id}'`);
             funcs.send(`You are now afk for: ${reason}.`);
         });
     } catch (err) {

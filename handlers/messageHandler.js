@@ -176,7 +176,7 @@ function handleBlacklistedUsers(message, con) {
 
 function handleCustomCommands(message, con, command, bot, funcs, args) {
   const commandFix = command.replace(/\"/g);
-  con.query(`SELECT * FROM guildCustomCommands WHERE guildCustomCommands.guildId ="${message.guild.id}" AND command_name ="${commandFix}"`, (e, row) => {
+  con.query(`SELECT * FROM guildCustomCommands WHERE guildCustomCommands.guildId ="${message.guild.id}" AND command_name =${con.escape(commandFix)}`, (e, row) => {
       if (!row || row.length == 0) return;
       row = row[0];
       const output = row.command_output;
@@ -213,7 +213,7 @@ function handleCustomCommands(message, con, command, bot, funcs, args) {
 
 function handleCustomResponses(message, con, command, bot, funcs, args) {
   const responseFix = message.content.replace(/\"/g);
-        con.query(`SELECT * FROM guildCustomResponses WHERE guildCustomResponses.guildId ="${message.guild.id}" AND response_name ="${responseFix}"`, (e, row) => {
+        con.query(`SELECT * FROM guildCustomResponses WHERE guildCustomResponses.guildId ="${message.guild.id}" AND response_name =${con.escape(responseFix)}`, (e, row) => {
             if (!row || row.length == 0) return;
             row = row[0];
             const output = row.response_output;

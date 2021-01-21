@@ -39,7 +39,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                             if (response.array()[0].content == "exit") return funcs.send(`Command canceled!`);
                                             const commandOutput = response.array()[0].content;
                                             if (commandOutput.length >= 1500) return funcs.send(`Output cannot be longer than 1500 characters!`);
-                                            con.query(`INSERT INTO guildCustomCommands (guildId, command_name, command_output) VALUES (?, ?, ?)`, [message.guild.id, commandName, commandOutput]);
+                                            con.query(`INSERT INTO guildCustomCommands (guildId, command_name, command_output) VALUES (?, ?, ?)`, [message.guild.id, con.escape(commandName), con.escape(commandOutput)]);
                                             funcs.send(`Command added!`);
                                             con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                             if (row.logsEnabled !== "true") return;
@@ -114,7 +114,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                     embed.fields.forEach(field => {
                                         if (field.name.startsWith(picked)) {
                                             const commandName = field.value.split("\n")[0].split(/ +/g)[2];
-                                            con.query(`DELETE FROM guildCustomCommands WHERE guildId ="${message.guild.id}" AND command_name ="${commandName}"`);
+                                            con.query(`DELETE FROM guildCustomCommands WHERE guildId ="${message.guild.id}" AND command_name =${con.escape(commandName)}`);
                                             funcs.send(`Command deleted!`);
                                             con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                             if (row.logsEnabled !== "true") return;
