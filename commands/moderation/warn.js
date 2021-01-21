@@ -17,9 +17,9 @@ module.exports.run = (bot, message, args, funcs, con) => {
             if (warns !== undefined && warns.length >= 20) return funcs.send(`User has too many warns (20). Please consider deleting some and try again.`);
             con.query(`SELECT * FROM userWarns WHERE guildId = "${message.guild.id}" AND userId = "${userToWarn.id}"`, (e, row) => {
                 if (!row || row.length == 0) {
-                    con.query(`INSERT INTO userWarns (guildId, userId, warning, warnedAt, warnedBy, username, warnCount) VALUES (?, ?, ?, ?, ?, ?, ?)`, [message.guild.id, userToWarn.id, reason, new Date().toDateString(), message.author.tag, userToWarn.user.username, 1]);
+                    con.query(`INSERT INTO userWarns (guildId, userId, warning, warnedAt, warnedBy, username, warnCount) VALUES (?, ?, ?, ?, ?, ?, ?)`, [message.guild.id, userToWarn.id, con.escape(reason), new Date().toDateString(), message.author.tag, userToWarn.user.username, 1]);
                 } else {
-                    con.query(`INSERT INTO userWarns (guildId, userId, warning, warnedAt, warnedBy, username, warnCount) VALUES (?, ?, ?, ?, ?, ?, ?)`, [message.guild.id, userToWarn.id, reason, new Date().toDateString(), message.author.tag, userToWarn.user.username, row[0].warnCount + 1]);
+                    con.query(`INSERT INTO userWarns (guildId, userId, warning, warnedAt, warnedBy, username, warnCount) VALUES (?, ?, ?, ?, ?, ?, ?)`, [message.guild.id, userToWarn.id, con.escape(reason), new Date().toDateString(), message.author.tag, userToWarn.user.username, row[0].warnCount + 1]);
                 }
             });
             con.query(`SELECT * FROM userPunishments WHERE guildId ="${message.guild.id}" AND userId ="${userToWarn.id}"`, async (e, row) => {

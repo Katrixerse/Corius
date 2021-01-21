@@ -46,7 +46,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                             response = response.array()[0].content;
                                             const reg = /"+/g;
                                             if (reg.test(response)) return funcs.send(`Reason cannot contain ' " '`);
-                                            con.query(`UPDATE userWarns SET warning ="${response}" WHERE guildId = "${message.guild.id}" AND userId = "${mem.id}" AND warning ="${warnText}"`);
+                                            con.query(`UPDATE userWarns SET warning =${con.escape(response)} WHERE guildId = "${message.guild.id}" AND userId = "${mem.id}" AND warning ="${warnText}"`);
                                             funcs.send(`Warning successfully updated!`);
                                             con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                             const embed = new richEmbed()
