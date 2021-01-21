@@ -1,6 +1,6 @@
-const f = require('../../assets/exports/funcs.js');
+const f = require('../../handlers/funcs.js');
 const { richEmbed } = require('discord.js');
-const { dbConnect } = require('./../../assets/handlers/dbConnection.js');
+const { dbConnect } = require('./../../handlers/dbConnection.js');
 
 let con;
 con = dbConnect();

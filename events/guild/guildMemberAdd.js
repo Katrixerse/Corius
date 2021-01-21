@@ -1,5 +1,5 @@
-const memJoinfuncs = require('./../../assets/handlers/memberjoin.js');
-const { dbConnect } = require('./../../assets/handlers/dbConnection.js');
+const memJoinfuncs = require('./../../handlers/memberjoin.js');
+const { dbConnect } = require('./../../handlers/dbConnection.js');
 
 let con;
 con = dbConnect();

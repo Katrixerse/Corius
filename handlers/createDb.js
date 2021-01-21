@@ -1,4 +1,4 @@
-const { dbConnect } = require('./../handlers/dbConnection.js');
+const { dbConnect } = require('./dbConnection.js');
 
 let con;
 con = dbConnect();

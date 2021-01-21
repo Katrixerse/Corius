@@ -1,5 +1,5 @@
 const { richEmbed } = require("discord.js");
-const addEntry = require('../../assets/exports/addDbEntry.js');
+const addEntry = require('../../handlers/addDbEntry.js');
 
 module.exports.run = (bot, message, args, funcs, con) => {
   const permissionNeeded = "BAN_MEMBERS";

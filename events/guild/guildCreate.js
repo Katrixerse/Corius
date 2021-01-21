@@ -1,5 +1,4 @@
-//const config = require("../assets/jsons/config.json");
-const create = require('../../assets/exports/addDbEntry');
+const create = require('../../handlers/addDbEntry');
 
 module.exports = async (bot, guild) => {
     try {

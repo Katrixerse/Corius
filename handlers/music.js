@@ -5,7 +5,7 @@ const {
 const yt = require('ytdl-core');
 const ytdlDiscord = require('ytdl-core-discord');
 const request = require('node-superfetch');
-const stations = require("../jsons/radiostations.json");
+const stations = require("../utils/radiostations.json");
 
 let dispatcher;
 let dispatcher_radio;

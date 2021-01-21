@@ -1,5 +1,5 @@
 const { richEmbed } = require("discord.js");
-const addEntry = require('../../assets/exports/addDbEntry');
+const addEntry = require('../../handlers/addDbEntry');
 
 module.exports.run = (bot, message, args, funcs, con) => {
     const permissionNeeded = `MANAGE_GUILD`;

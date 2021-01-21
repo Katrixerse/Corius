@@ -1,9 +1,8 @@
-//const mfuncs = require("../../assets/exports/funcs.js");
 const { richEmbed } = require('discord.js');
 const permissionNeeded = "BAN_MEMBERS";
 const ms = require('ms');
-const Funcs = require('./../exports/funcs');
-const addEntry = require('./../exports/addDbEntry');
+const Funcs = require('./../handlers/funcs');
+const addEntry = require('./../handlers/addDbEntry');
 const { dbConnect } = require('./dbConnection.js');
 
 let con;

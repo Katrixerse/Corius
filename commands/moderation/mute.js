@@ -2,7 +2,7 @@ const {
     richEmbed
 } = require("discord.js");
 const ms = require("ms");
-const addEntry = require('../../assets/exports/addDbEntry');
+const addEntry = require('../../handlers/addDbEntry');
 module.exports.run = (bot, message, args, funcs, con) => {
     const permissionNeeded = "MANAGE_GUILD";
     con.query(`SELECT guildMods FROM guildModerators WHERE guildId ="${message.guild.id}"`, (e, rows) => {

@@ -1,6 +1,6 @@
 const { richEmbed } = require('discord.js');
-const Funcs = require('./../../assets/exports/funcs');
-const { dbConnect } = require('./../../assets/handlers/dbConnection.js');
+const Funcs = require('./../../handlers/funcs');
+const { dbConnect } = require('./../../handlers/dbConnection.js');
 
 let con;
 con = dbConnect();

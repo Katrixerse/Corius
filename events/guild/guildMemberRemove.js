@@ -1,5 +1,5 @@
-const memLeavefuncs = require('./../../assets/handlers/memberleave.js');
-const { dbConnect } = require('./../../assets/handlers/dbConnection.js');
+const memLeavefuncs = require('./../../handlers/memberleave.js');
+const { dbConnect } = require('./../../handlers/dbConnection.js');
 
 let con;
 con = dbConnect();

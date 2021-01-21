@@ -1,5 +1,5 @@
 const { richEmbed } = require('discord.js');
-const addEntry = require('../../assets/exports/addDbEntry');
+const addEntry = require('../../handlers/addDbEntry');
 module.exports.run = async (bot, message, args, funcs, con) => {
     try {
         con.query(`SELECT cn.caseNumber, gs.logsEnabled, gs.logsChannel FROM guildCasenumber as cn LEFT JOIN guildSettings as gs ON gs.guildId = cn.guildId WHERE cn.guildId ="${message.guild.id}"`, async (e, row) => {

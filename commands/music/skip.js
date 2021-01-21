@@ -1,4 +1,4 @@
-const musicfuncs = require('../../assets/handlers/music.js');
+const musicfuncs = require('../../handlers/music.js');
 module.exports.run = async (bot, message, args, funcs) => {
     try {
         musicfuncs.skip(message, bot, funcs);

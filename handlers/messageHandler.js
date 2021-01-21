@@ -1,5 +1,5 @@
-const modFuncs = require('../../assets/handlers/moderationfuncs.js');
-const Funcs = require('./../exports/funcs');
+const modFuncs = require('../../handlers/moderationfuncs.js');
+const Funcs = require('./../handlers/funcs');
 const usedCommandRecently = new Set();
 const { dbConnect } = require('./dbConnection.js');
 

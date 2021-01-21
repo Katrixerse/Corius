@@ -1,7 +1,7 @@
 const {
     shuffle,
     verify
-} = require('./../../assets/handlers/util');
+} = require('./../../handlers/miscfuncs.js');
 const suits = ['♣', '♥', '♦', '♠'];
 const faces = ['Jack', 'Queen', 'King'];
 const games = new Map();

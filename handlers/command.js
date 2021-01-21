@@ -1,5 +1,5 @@
 const { readdirSync } = require("fs");
-const funcs = require("./../exports/funcs.js");
+const funcs = require("./../handlers/funcs.js");
 const getParent = new funcs().getParent;
 
 module.exports = bot => {

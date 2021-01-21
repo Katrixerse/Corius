@@ -1,7 +1,7 @@
 const request = require('node-superfetch');
 const fsn = require("fs-nextra");
 const { createCanvas, loadImage } = require('canvas');
-const canvasFuncs = require('../../assets/handlers/canvas.js');
+const canvasFuncs = require('../../handlers/canvas.js');
 
 module.exports.run = async (bot, message, args, funcs) => {
     if (message.mentions.users.size < 1) return send("No mentions found in your message.");

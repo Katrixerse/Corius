@@ -7,11 +7,11 @@ const bot = new Client({
     messageCacheLifetime: 240,
     messageSweepInterval: 300,
 });
-const { token } = require('./assets/config.json');
+const { token } = require('./utils/config.json');
 
 ['commands','aliases', 'usage', 'cooldownTime'].forEach(x => bot[x] = new Collection());
-['command', 'event'].forEach(x => require(`./assets/handlers/${x}`)(bot));
-const errorHandler = require('./assets/handlers/error');
+['command', 'event'].forEach(x => require(`./handlers/${x}`)(bot));
+const errorHandler = require('./handlers/error');
 
 bot.on('disconnect', () => errorHandler.disconnect())
     .on("reconnecting", () => errorHandler.reconnecting())

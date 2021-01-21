@@ -1,5 +1,5 @@
-const create = require('../../assets/exports/createDb');
-const activities = require('../../assets/jsons/activity');
+const create = require('../../handlers/createDb');
+const activities = require('../../utils/activity.json');
 const request = require('node-superfetch');
 const { dblKey, botsggkey } = require('../../assets/config.json');
 const ms = require('ms');
@@ -51,11 +51,11 @@ module.exports = async (bot) => {
     })
     .then(() => console.log(`Posted to dbl.gg.`))
     .catch((e) => console.error(e.message));
-  const { addDbEntry } = require('../../assets/exports/addDbEntry');
-  /*bot.guilds.forEach(async guild => {
+  const { addDbEntry } = require('../../handlers/addDbEntry');
+  bot.guilds.forEach(async guild => {
     const guildId = guild.id;
     await addDbEntry(guildId);
     console.log('Added guild with ID: ' + guildId)
-  });*/
+  });
   console.log(`${bot.user.username} loaded. Currently in ${bot.guilds.size} server(s) with ${bot.users.size} users.`);
 };

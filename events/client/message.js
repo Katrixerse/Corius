@@ -1,6 +1,6 @@
-const funcs = require("../../assets/exports/funcs.js");
-const messFuncs = require("../../assets/handlers/messageHandler.js");
-const { dbConnect } = require('./../../assets/handlers/dbConnection.js');
+const funcs = require("../../handlers/funcs.js");
+const messFuncs = require("../../handlers/messageHandler.js");
+const { dbConnect } = require('./../../handlers/dbConnection.js');
 
 let con;
 con = dbConnect();
