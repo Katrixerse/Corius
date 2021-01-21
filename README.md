@@ -1,4 +1,4 @@
-Attention: I will do my best to help out if your having issues hosting but also not gonna spoonfeed you either, this is my latest bot thats meant to be better than oricnus and justin i will still do updates to this bot at times but been through alot of testing and should be pretty stable as is.
+Attention: I have started a new bot recently and so this bot wont recieve much updates anymore and no longer really worked on since i think starting from the ground up again we can improve alot of things again and fix the issues with this one 
 
 # Corius
 Written in discord.js of course 
@@ -7,7 +7,7 @@ If you find any bugs please make a issue so i can look into it and fix it
 
 Made By:
 - Katrixerse (me)
-- Levi Kaichou
+- Gold Prince
 
 Special Thanks too:
 - dragonfire535 - Some api commands & some canvas commands
