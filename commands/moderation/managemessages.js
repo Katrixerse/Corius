@@ -111,7 +111,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                 let newprefix = welcomemess.content.replace(/[^\x00-\x7F]/g, "");
                                                 if (newprefix.length < 1) return funcs.send(`Welcome message can't have ASCII characters.`);
                                                 if (welcomemess.content.length > 500) return funcs.send(`Message can't be larger than 500 characters.`);
-                                                con.query(`UPDATE guildWLSystem SET welcomeMessage = "${welcomemess.content}" WHERE guildId = ${message.guild.id}`);
+                                                con.query(`UPDATE guildWLSystem SET welcomeMessage =${con.escape(welcomemess.content)} WHERE guildId = ${message.guild.id}`);
                                                 funcs.send(`Message has been set.`);
                                                 con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                 let finder = message.guild.channels.find(c => c.name == row.logsChannel);
@@ -266,7 +266,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                 let newprefix = welcomemess.content.replace(/[^\x00-\x7F]/g, "");
                                                 if (newprefix.length < 1) return funcs.send(`Welcome message can't have ASCII characters.`);
                                                 if (welcomemess.content.length > 500) return duncs.send(`Message can't be larger than 500 characters.`);
-                                                con.query(`UPDATE guildWLSystem SET leaveMessage = "${welcomemess.content}" WHERE guildId = ${message.guild.id}`);
+                                                con.query(`UPDATE guildWLSystem SET leaveMessage =${con.escape(welcomemess.content)} WHERE guildId = ${message.guild.id}`);
                                                 funcs.send(`Message has been set.`);
                                                 con.query(`UPDATE guildCasenumber SET caseNumber = ${row.caseNumber + 1} WHERE guildId = ${message.guild.id}`);
                                                 let finder = message.guild.channels.find(c => c.name == row.logsChannel);

@@ -56,7 +56,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                                                 mess2.delete();
                                                 mess3.delete();
                                                 mess4.delete();
-                                                con.query(`INSERT INTO guildGiveaways (guildId, giveawayName, giveawayTime, giveawayRunning, timeId, winnerCount) VALUES (?, ?, ?, ?, ?, ?)`, [message.guild.id, giveawayName, giveawayTime, 1, message.createdTimestamp.toString(), winners]);
+                                                con.query(`INSERT INTO guildGiveaways (guildId, giveawayName, giveawayTime, giveawayRunning, timeId, winnerCount) VALUES (?, ?, ?, ?, ?, ?)`, [message.guild.id, con.escape(giveawayName), giveawayTime, 1, message.createdTimestamp.toString(), winners]);
                                                 const embed = new richEmbed()
                                                     .setAuthor(message.author.tag, message.author.avatarURL)
                                                     .setColor(funcs.rc())

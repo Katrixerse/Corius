@@ -18,7 +18,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                         }).then((response) => {
                             response = response.array()[0].content;
                             const bug = response.replace(/\"+/g);
-                            con.query(`INSERT INTO botBugs (userId, bugMessage, bugReplied, bugId) VALUES (?, ?, ?, ?)`, [message.author.id, bug, "false", message.createdTimestamp.toString()]);
+                            con.query(`INSERT INTO botBugs (userId, bugMessage, bugReplied, bugId) VALUES (?, ?, ?, ?)`, [message.author.id, con.escape(bug), "false", message.createdTimestamp.toString()]);
                             funcs.send(`Bug has been successfully reported. Thank you for your help.`);
                             const { richEmbed } = require('discord.js');
                             const embed = new richEmbed()
@@ -54,7 +54,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                                     channel.fetchMessages().then(messages => {
                                         const bugMess = messages.filter(m => m.embeds !== undefined).first().embeds[0].fields.filter(f => f.value == id)[0].value;
                                         bugMess.delete();
-                                        return con.query(`DELETE FROM botBugs WHERE bugId ="${response}"`);
+                                        return con.query(`DELETE FROM botBugs WHERE bugId =${con.escape(response)}`);
                                     });
                                     return;
                                 }

@@ -17,7 +17,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                             time: 30000
                         }).then((response) => {
                             const note = response.array()[0].content;
-                            con.query(`INSERT INTO userNotes (guildId, userId, note, addedAt) VALUES (?, ?, ?, ?)`, [message.guild.id, message.author.id, note, new Date().toDateString()]);
+                            con.query(`INSERT INTO userNotes (guildId, userId, note, addedAt) VALUES (?, ?, ?, ?)`, [message.guild.id, message.author.id, con.escape(note), new Date().toDateString()]);
                             funcs.send(`Note added!`);
                         }).catch((e) => {
                             funcs.send(`You ran out of time or an error occured!`);
@@ -51,7 +51,7 @@ module.exports.run = (bot, message, args, funcs, con) => {
                                 if (field.name.startsWith(num)) {
                                     const note = field.value.split("\n")[0].split(/ +/g)[1];
                                     funcs.send(`Note deleted!`);
-                                    con.query(`DELETE FROM userNotes WHERE guildId = "${message.guild.id}" AND userId = "${message.author.id}" AND note ="${note}"`);
+                                    con.query(`DELETE FROM userNotes WHERE guildId = "${message.guild.id}" AND userId = "${message.author.id}" AND note =${con.escape(note)}`);
                                 }
                             });
                         }).catch((e) => {

@@ -3,6 +3,7 @@ const activities = require('../../utils/activity.json');
 const request = require('node-superfetch');
 const { dblKey, botsggkey } = require('../../assets/config.json');
 const ms = require('ms');
+const checkIfDBExists = require("../../handlers/createDb");
 module.exports = async (bot) => {
   await create.createDb();
   bot.user.setPresence({
@@ -57,5 +58,6 @@ module.exports = async (bot) => {
     await addDbEntry(guildId);
     console.log('Added guild with ID: ' + guildId)
   });
+  checkIfDBExists();
   console.log(`${bot.user.username} loaded. Currently in ${bot.guilds.size} server(s) with ${bot.users.size} users.`);
 };
