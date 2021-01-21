@@ -7,7 +7,7 @@ If you find any bugs please make a issue so i can look into it and fix it
 
 Made By:
 - Katrixerse (me)
-- Levi Kaichou
+- Gold Prince
 
 Special Thanks too:
 - dragonfire535 - Some api commands & some canvas commands
