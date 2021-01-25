@@ -1,8 +1,6 @@
 //# Initialization
 const { Client, Collection } = require('discord.js');
 const bot = new Client({
-    disabledEvents: ["RELATIONSHIP_ADD", "RELATIONSHIP_REMOVE", "TYPING_START"],
-    disableEveryone: true,
     messageCacheMaxSize: 150,
     messageCacheLifetime: 240,
     messageSweepInterval: 300,
