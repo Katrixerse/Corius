@@ -5,6 +5,8 @@ const { dbConnect } = require('./../../handlers/dbConnection.js');
 let con;
 con = dbConnect();
 
+let prefix;
+
 module.exports = async (bot, message) => {
   if (message.author.bot || message.channel.type === "dm") return;
   con.query(`SELECT gp.prefix, gs.modOnly, gs.levelingEnabled, gs.economyEnabled, gds.commands, gds.categories FROM guildPrefix AS gp LEFT JOIN guildSettings as gs ON gp.guildId = gs.guildId LEFT JOIN guildDisabledSettings AS gds ON gp.guildId = gds.guildId WHERE gp.guildId ="${message.guild.id}"`, async (e, row) => {
@@ -12,6 +14,7 @@ module.exports = async (bot, message) => {
       con.query(`SELECT * FROM guildModerators WHERE guildId = '${message.guild.id}'`, async (e, mods) => {
         con.query(`SELECT * FROM guildBlacklistedUsers WHERE guildId ="${message.guild.id}" AND user ="${message.author.id}"`, async (e, user) => {
           row = row[0];
+          prefix = row != null ? row[0].prefix : 'k!';
           const args = message.content
             .slice(row.prefix.length)
             .trim()
