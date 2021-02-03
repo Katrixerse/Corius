@@ -14,14 +14,14 @@ module.exports = async (bot, message) => {
       con.query(`SELECT * FROM guildModerators WHERE guildId = '${message.guild.id}'`, async (e, mods) => {
         con.query(`SELECT * FROM guildBlacklistedUsers WHERE guildId ="${message.guild.id}" AND user ="${message.author.id}"`, async (e, user) => {
           row = row[0];
-          prefix = row != null ? row[0].prefix : 'k!';
+          prefix = row != null ? row[0].prefix : 'c!';
           const args = message.content
-            .slice(row.prefix.length)
+            .slice(prefix.length)
             .trim()
             .split(/ +/g);
           let command = args.shift();
           con.query(`SELECT * FROM disabledCommandsInChannels WHERE guildId ="${message.guild.id}" AND command ="${command}" AND channel ="${message.channel.name}"`, async (e, row1) => {
-            if (!message.content.startsWith(row.prefix)) {
+            if (!message.content.startsWith(prefix)) {
               //* Prefix reset
               if (message.content.startsWith(`<@${bot.user.id}> prefix` || `<@!${bot.user.id}> prefix`)) {
                 message.channel.send(`__**Prefix has been successfully resetted to "c!"!**__`);
