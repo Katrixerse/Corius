@@ -12,14 +12,14 @@ module.exports = async (bot, message) => {
   con.query(`SELECT gp.prefix, gs.modOnly, gs.levelingEnabled, gs.economyEnabled, gds.commands, gds.categories FROM guildPrefix AS gp LEFT JOIN guildSettings as gs ON gp.guildId = gs.guildId LEFT JOIN guildDisabledSettings AS gds ON gp.guildId = gds.guildId WHERE gp.guildId ="${message.guild.id}"`, async (e, row) => {
     con.query(`SELECT userId AS afkId, guildId, isAfk, afkReason FROM afk AS a WHERE guildId ='${message.guild.id}'`, async (e, rows) => {
       con.query(`SELECT * FROM guildModerators WHERE guildId = '${message.guild.id}'`, async (e, mods) => {
-        con.query(`SELECT * FROM guildBlacklistedUsers WHERE guildId ="${message.guild.id}" AND user ="${message.author.id}"`, async (e, user) => {
-          row = row[0];
+        con.query(`SELECT * FROM guildBlacklistedUsers WHERE guildId ="${message.guild.id}" AND user ="${message.author.id}"`, async (e, user) => 
           prefix = row != null ? row[0].prefix : 'c!';
           const args = message.content
             .slice(prefix.length)
             .trim()
             .split(/ +/g);
           let command = args.shift();
+          row = row[0];
           con.query(`SELECT * FROM disabledCommandsInChannels WHERE guildId ="${message.guild.id}" AND command ="${command}" AND channel ="${message.channel.name}"`, async (e, row1) => {
             if (!message.content.startsWith(prefix)) {
               //* Prefix reset
