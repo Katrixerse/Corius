@@ -1,4 +1,4 @@
-Attention: I have started a new bot recently and so this bot wont recieve much updates anymore and no longer really worked on since i think starting from the ground up again we can improve alot of things again and fix the issues with this one 
+Attention: I have started a new bot recently and so this bot wont recieve any major updates anymore and no longer really worked on since i think starting from the ground up again we can improve a lot of things again and fix the issues with this one 
 
 # Corius
 Written in discord.js of course 
