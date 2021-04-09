@@ -9,11 +9,11 @@ Made By:
 - Katrixerse (me)
 - Gold Prince
 
-Special Thanks too:
+Special Thanks to:
 - dragonfire535 - Some api commands & some canvas commands
 - reztierk - Help with mysql statements and some coding 
 
- will use mySql instead of sqlite to store data (Better this way for reading/writing data)
+ Will use mySQL instead of sqlite to store data (Better this way for reading/writing data)
 
 --------------------------------------------------------
 
