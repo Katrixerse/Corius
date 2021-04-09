@@ -1,1 +1,9 @@
-
+ {
+    "token": "Bots token",
+    "prefix": "c!",
+    "dblKey": "Key for posting bot stats to top.gg",
+    "botsggkey": "key for posting to bots stats",
+    "OPENWEATHERMAP_KEY": "Weather api key",
+    "GITHUB_USER": "Github username",
+    "GITHUB_PASS": "github pass"
+}
