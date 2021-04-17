@@ -34,8 +34,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                         .setThumbnail(bot.user.avatarURL);
                     message.channel.send(wonembed);
                 } else {
-                    let lostamount = Math.floor(bet * 3);
-                    con.query(`UPDATE guildCash SET userCash = ${row1.userCash - lostamount} WHERE guildId = ${message.guild.id} AND userId = ${message.author.id}`);
+                    con.query(`UPDATE guildCash SET userCash = ${row1.userCash - bet} WHERE guildId = ${message.guild.id} AND userId = ${message.author.id}`);
                     let lostembed = new richEmbed()
                         .setTitle(`You have Lost!`)
                         .setColor(funcs.rc())
