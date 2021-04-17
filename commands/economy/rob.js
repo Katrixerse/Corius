@@ -13,15 +13,19 @@ module.exports.run = (bot, message, args, funcs, con) => {
                 if (dice <= 50) {
                     const userMoney = userRow.userCash;
                     const randomNum = Math.floor(Math.random() * 40) + 1;
-                    const robbedAmount = Math.floor(randomNum / 100 * userMoney);
-                    if (robbedAmount > userMoney) robbedAmount = userMoney;
+                    let robbedAmount = Math.floor(randomNum / 100 * userMoney);
+                    if (robbedAmount > userMoney) { 
+                        robbedAmount = userMoney 
+                    };
                     funcs.send(`You have robbed ${userToRob.user.username} for $${robbedAmount}!`);
                     con.query(`UPDATE guildCash SET userCash = ${row.userCash + robbedAmount} WHERE guildId = ${message.guild.id} AND userId = ${message.author.id}`);
                     con.query(`UPDATE guildCash SET userCash = ${userRow.userCash - robbedAmount} WHERE guildId = ${message.guild.id} AND userId = ${userToRob.id}`);
                 } else {
                     const randomNum = Math.floor(Math.random() * 30) + 1;
-                    const fine = Math.floor(randomNum / 100 * row.userCash);
-                    if (fine > row.userCash) fine = row.userCash;
+                    let fine = Math.floor(randomNum / 100 * row.userCash);
+                    if (fine > row.userCash) {
+                        fine = row.userCash;
+                    }
                     funcs.send(`You have been caught robbing ${userToRob.user.username} and got a fine of $${fine}!`);
                     con.query(`UPDATE guildCash SET userCash = ${row.userCash - fine} WHERE guildId = ${message.guild.id} AND userId = ${message.author.id}`);
                 }
