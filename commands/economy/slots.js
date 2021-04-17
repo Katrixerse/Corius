@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args, funcs, con) => {
                         .addField("Line 1:", `${slotFour}|${slotFive}|${slotSix}`)
                         .addField("Line 2:", `${slotOne}|${slotTwo}|${slotThree}`)
                         .addField("Line 3:", `${slotSeven}|${slotEight}|${slotNine}`)
-                        .addField(`You have lost:`, lostamount + "$")
+                        .addField(`You have lost:`, bet + "$")
                         .setTimestamp()
                         .setThumbnail(bot.user.avatarURL);
                     message.channel.send(lostembed);
