@@ -1,7 +1,7 @@
 Attention: I have started a new bot recently and so this bot wont recieve any major updates anymore and no longer really worked on since i think starting from the ground up again we can improve a lot of things again and fix the issues with this one 
 
 # Corius
-Written in discord.js of course 
+Written in javascript using discord.js of course 
 
 If you find any bugs please make a issue so i can look into it and fix it
 
