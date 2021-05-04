@@ -4,11 +4,11 @@ const getParent = new funcs().getParent;
 
 module.exports = bot => {
   const load = dirs => {
-    const commands = readdirSync(`./commands/${dirs}`).filter(d =>
+    const commands = readdirSync(`./../commands/${dirs}`).filter(d =>
       d.endsWith(".js")
     );
     for (let file of commands) {
-      const pull = require(`../../commands/${dirs}/${file}`);
+      const pull = require(`./../commands/${dirs}/${file}`);
       try {
         bot.commands.set(pull.config.name, pull);
         bot.usage.set(pull.config.name, pull.config.usage);
