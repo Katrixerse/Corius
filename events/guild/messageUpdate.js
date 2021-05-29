@@ -7,6 +7,7 @@ con = dbConnect();
 
 module.exports = (bot, message, newMessage) => {
     if (newMessage.author.bot) return;
+    if (message.content === newMessage.content) return;
     const funcs = new f(message);
     con.query(`SELECT gd.events, gs.clogsEnabled, gs.clogsChannel FROM guildDisabledSettings AS gd LEFT JOIN guildSettings AS gs ON gs.guildId = gd.guildId WHERE gd.guildId ="${message.guild.id}"`, (e, row) => {
         row = row[0];
